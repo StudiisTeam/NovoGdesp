@@ -58,16 +58,87 @@ $ yarn run test:e2e
 $ yarn run test:cov
 ```
 
-## Support
+# Descricoes de algumas partes do projeto
+## 1 - Usuarios
+- Devera existir somente 3 tipos de perfis: **ADMIN, MASTER e USER**.
+- Devera existir somente 4 basicas tipos de opercaoes: **CRAICAO, EXCLUSAO, EDICAO e LISTAGEM**.
+- Cada usuario alem de pertencer a um perfil ainda deve ter suas proprias permicoes, defindas pelos perfis **MASTER OU ADMIN**.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 2 - Contratos
+### Departamentos
+- Somente usuarios **MASTER OU ADMIN** poderam **CRIAR , EDITAR OU EXCLUIR** departamentos.
 
-## Stay in touch
+# Funcionalidades
+## Servico de gerenciamento de contratos
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Categoria de usuarios
+- [ADMIN] Cadastro de usuarios
+- [ADMIN] Listagem de usuarios
+- [ADMIN] Edicao de usuarios
+- [ADMIN] Exclusao de usuarios
+- [MASTER] Listagem de Operacoes
+- [MASTER] Cadastro de usuarios
+- [MASTER] Edicao de Operacoes
 
+### Categoria de Perfis
+- [ADMIN] Cadastro de Perfis
+- [ADMIN] Listagem de Perfis
+- [ADMIN] Edicao de Perfis
+- [ADMIN] Exclusao de Perfis
+
+### Categoria de Operacoes
+- [ADMIN] Cadastro de Operacoes
+- [ADMIN] Listagem de Operacoes
+- [ADMIN] Edicao de Operacoes
+- [ADMIN] Exclusao de Operacoes
+
+
+### Categoria de Modulos
+- [ADMIN] Cadastro de Modulos
+- [ADMIN] Listagem de Modulos
+- [ADMIN] Edicao de Modulos
+- [ADMIN] Exclusao de Modulos
+
+### Categoria de Permissoes
+- [ADMIN] Cadastro de Permissoes
+- [ADMIN] Listagem de Permissoes
+- [ADMIN] Edicao de Permissoes
+- [ADMIN] Exclusao de Permissoes
+
+
+### Categoria de Departamentos
+- [ADMIN] Cadastro de Operacoes
+- [ADMIN] Listagem de Operacoes
+- [ADMIN] Edicao de Operacoes
+- [ADMIN] Exclusao de Operacoes
+- [MASTER] Listagem de Operacoes
+- [MASTER] Edicao de Operacoes
+#
+
+
+# Fluxo do projeto
+## Como devera funcionar:
+### TELA DE LOGIN:
+- O **USUARIO** podera entra no site, informando seu *EMAIL E SENHA*.
+- O **USUARIO** podera redefinir sua senha, infomando o *EMAIL* de login, onde receber um um link para defefinicao.
+- O **USUARIO** tera uma opcao para contactar o suporte.
+
+### HOME
+
+### TELA DE CONTRATOS
+
+
+# Estrutura do projeto
+- A camada de presentation seria usada principalmente para inserir e emitir dados do usuário (rotas de API).
+
+- A camada de domain central interna contém toda a lógica de negócios (casos de uso, repositórios).
+
+- A camada de infra contém todas as implementações de infraestrutura (fontes de dados).
+
+Para cada camada, definimos as interfaces em uma pasta de interfaces
+
+
+Para cada camada, definimos as interfaces em uma pasta de interfaces
 ## License
 
 Nest is [MIT licensed](LICENSE).
