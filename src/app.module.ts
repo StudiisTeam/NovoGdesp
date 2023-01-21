@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
-import { LoggerModule } from './infra/logger/logger.module';
-import { ExceptionsModule } from './infra/exceptions/exceptions.module';
-import { HttpModule } from './presentation/http/http.module';
-import { ConfigModule } from '@nestjs/config';
+import { DomainModule } from './domain/domain.module';
+import { PresentationModule } from './presentation/presentation.module';
+import { InfraModule } from './infra/infra.module';
 
 @Module({
-  imports: [LoggerModule, ExceptionsModule, HttpModule, ConfigModule.forRoot(),
+  imports: [
+    DomainModule,
+    PresentationModule,
+    InfraModule,
   ],
   controllers: [],
   providers: [],
