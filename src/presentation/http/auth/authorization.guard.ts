@@ -4,11 +4,12 @@ import {
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { GqlExecutionContext } from '@nestjs/graphql';
 import { expressJwtSecret } from 'jwks-rsa';
 import { ExceptionsService } from 'src/infra/exceptions/exceptions.service';
 import { promisify } from 'util';
+import jwt from 'express-jwt';
+import * as dotenv from 'dotenv';
+
 
 @Injectable()
 export class AuthorizationGuard implements CanActivate {
@@ -16,11 +17,13 @@ export class AuthorizationGuard implements CanActivate {
   private AUTH0_DOMAIN: string;
 
   constructor(
-    private configService: ConfigService,
-    private readonly exceptionsService: ExceptionsService
+    // private configService: ConfigService,
+    // private readonly exceptionsService: ExceptionsService
   ) {
-    this.AUTH0_AUDIENCE = this.configService.get('AUTH0_AUDIENCE') ?? '';
-    this.AUTH0_DOMAIN = this.configService.get('AUTH0_DOMAIN') ?? '';
+    // this.AUTH0_AUDIENCE = this.configService.get('AUTH0_AUDIENCE') ?? '';
+    // this.AUTH0_DOMAIN = this.configService.get('AUTH0_DOMAIN') ?? '';
+    this.AUTH0_AUDIENCE = process.env.AUTH0_AUDIENCE ?? '';
+    this.AUTH0_DOMAIN = process.env.AUTH0_DOMAIN ?? '';
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -46,14 +49,11 @@ export class AuthorizationGuard implements CanActivate {
 
     try {
       await checkJwt(request, response);
+      console.log(request);
       return true;
     } catch (err) {
       // this.exceptionsService.unauthotizedException(err);
       throw new UnauthorizedException(err);
     }
   }
-}
-
-function jwt(arg0: { secret: import("jwks-rsa").SecretCallbackLong | import("jwks-rsa").GetVerificationKey; audience: string; issuer: string; algorithms: string[]; }): import("util").CustomPromisify<Function> {
-  throw new Error('Function not implemented.');
 }
