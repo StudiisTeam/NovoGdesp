@@ -15,13 +15,20 @@ export class AuthorizationGuard implements CanActivate {
   private AUTH0_AUDIENCE: string;
   private AUTH0_DOMAIN: string;
 
-  constructor(private configService: ConfigService, private readonly exceptionsService: ExceptionsService) {
+  constructor(
+    private configService: ConfigService,
+    private readonly exceptionsService: ExceptionsService
+  ) {
     this.AUTH0_AUDIENCE = this.configService.get('AUTH0_AUDIENCE') ?? '';
     this.AUTH0_DOMAIN = this.configService.get('AUTH0_DOMAIN') ?? '';
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    const { req, res } = GqlExecutionContext.create(context).getContext();
+    // const { req, res } = GqlExecutionContext.create(context).getContext();
+    const httpContext = context.switchToHttp();
+    const request = httpContext.getRequest();
+    const response = httpContext.getResponse();
+
 
     const checkJwt = promisify(
       jwt({
@@ -38,10 +45,11 @@ export class AuthorizationGuard implements CanActivate {
     );
 
     try {
-      await checkJwt(req, res);
+      await checkJwt(request, response);
       return true;
     } catch (err) {
-      this.exceptionsService.unauthotizedException(err);
+      // this.exceptionsService.unauthotizedException(err);
+      throw new UnauthorizedException(err);
     }
   }
 }
