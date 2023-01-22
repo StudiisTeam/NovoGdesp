@@ -20,22 +20,8 @@ export class AuthorizationGuard implements CanActivate {
     this.AUTH0_DOMAIN = process.env.AUTH0_DOMAIN ?? '';
   }
 
-
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const { req, res } = GqlExecutionContext.create(context).getContext();
-
-    var secret = expressJwtSecret({
-      jwksUri: `${this.AUTH0_DOMAIN}.well-known/jwks.json`,
-    }) as GetVerificationKey
-    const jwksUri = `${this.AUTH0_DOMAIN}.well-known/jwks.json`
-
-    // const token = expressJwtSecret({
-    //   cache: true,
-    //   rateLimit: true,
-    //   jwksRequestsPerMinute: 20,
-    //   jwksUri: `${this.AUTH0_DOMAIN}.well-known/jwks.json`,
-    // })
-    // console.log('teste ' + token, 'domains ' + this.AUTH0_DOMAIN);
 
     const checkJwt = promisify(
       jwt({
@@ -52,8 +38,6 @@ export class AuthorizationGuard implements CanActivate {
     );
 
     try {
-      console.log(req);
-
       await checkJwt(req, res);
       return true;
     } catch (error) {
