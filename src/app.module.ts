@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { LoggerModule } from './infra/logger/logger.module';
-import { ExceptionsModule } from './infra/exceptions/exceptions.module';
-import { HttpModule } from './presentation/http/http.module';
+import { ApplicationsModule } from './applications/applications.module';
+import { InfraModule } from './infra/infra.module';
 
 @Module({
-  imports: [LoggerModule, ExceptionsModule, HttpModule],
+  imports: [
+    ApplicationsModule,
+    InfraModule,
+  ],
   controllers: [],
   providers: [],
 })
