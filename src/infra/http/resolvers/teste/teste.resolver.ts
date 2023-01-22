@@ -5,12 +5,9 @@ import { AuthorizationGuard } from '../../auth/authorization.guard';
 
 @Resolver()
 export class TesteResolver {
-  constructor(
-    private prisma: PrismaService
-  ) { }
+  constructor(private prisma: PrismaService) { }
+
   @Query(() => String)
   @UseGuards(AuthorizationGuard)
-  hello() {
-    return "hello world"
-  }
+  hello() { return "hello world" }
 }
