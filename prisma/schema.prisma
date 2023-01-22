@@ -10,6 +10,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Departaments {
-  id String @id @default(uuid())
+model Departments {
+  id          String   @id @default(uuid())
+  title       String
+  accountable String?
+  acronym     String?
+  color       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
 }
