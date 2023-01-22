@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Departments" (
+CREATE TABLE "Department" (
     "id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "accountable" TEXT,
@@ -8,5 +8,5 @@ CREATE TABLE "Departments" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "Departments_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Department_pkey" PRIMARY KEY ("id")
 );
