@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from './database/database.module';
-import { ExceptionsService } from '../helpers/exceptions/exceptions.service';
-import { LoggerService } from '../helpers/logger/logger.service';
 import { HttpModule } from './http/http.module';
+import { RepositoriesModule } from './repositories/repositories.module';
 
 @Module({
   imports: [
     DatabaseModule,
-    HttpModule
+    HttpModule,
+    RepositoriesModule,
   ],
 })
 export class InfraModule { }

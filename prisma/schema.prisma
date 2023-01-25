@@ -10,6 +10,45 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Departaments {
-  id String @id @default(uuid())
+model Department {
+  id                            String                          @id @default(uuid())
+  title                         String
+  accountable                   String?
+  acronym                       String?
+  color                         String
+  createdAt                     DateTime                        @default(now())
+  updatedAt                     DateTime                        @default(now()) @updatedAt
+  BiddingProcessesOnDepartments BiddingProcessesOnDepartments[]
+}
+
+model Modality {
+  id             Int              @id @default(autoincrement())
+  name           String
+  BiddingProcess BiddingProcess[]
+}
+
+model BiddingProcess {
+  id                            String                          @id @default(uuid())
+  processIdentifier             String                          @unique
+  processNumber                 String                          @unique
+  processYear                   Int
+  modalityId                    Int
+  callingInstrument             String
+  object                        String
+  executionRegime               String
+  guarantee                     Boolean
+  agreement                     Boolean
+  createdAt                     DateTime                        @default(now())
+  updatedAt                     DateTime                        @default(now()) @updatedAt
+  modality                      Modality                        @relation(fields: [modalityId], references: [id])
+  BiddingProcessesOnDepartments BiddingProcessesOnDepartments[]
+}
+
+model BiddingProcessesOnDepartments {
+  biddingProcessId String
+  departmentId     String
+  BiddingProcess   BiddingProcess @relation(fields: [biddingProcessId], references: [id])
+  Department       Department     @relation(fields: [departmentId], references: [id])
+
+  @@id([biddingProcessId, departmentId])
 }

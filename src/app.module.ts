@@ -1,12 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ApplicationsModule } from './applications/applications.module';
 import { InfraModule } from './infra/infra.module';
+import { DomainModule } from './domain/domain.module';
 
 @Module({
-  imports: [
-    ApplicationsModule,
-    InfraModule,
-  ],
+  imports: [InfraModule, DomainModule, DomainModule],
   controllers: [],
   providers: [],
 })
