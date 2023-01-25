@@ -6,7 +6,7 @@ import { DatabaseModule } from 'src/infra/database/database.module';
 import { ApolloFederationDriver } from '@nestjs/apollo';
 import { DepartmentResolver } from './graphql/resolvers/department/department.resolver';
 import { CreateDepartmentUsecase } from 'src/domain/use-cases/department/create-department.usecase';
-import { DepartmentServiceInterface } from 'src/domain/interfaces/deparment.interface';
+import { DepartmentRepositoryInterface } from 'src/domain/interfaces/deparment.interface';
 import { ExcetionsServiceInterface } from 'src/domain/interfaces/exception.interface';
 import { ExceptionsService } from 'src/infra/helpers/exceptions/exceptions.service';
 import { DomainModule } from 'src/domain/domain.module';
@@ -30,7 +30,7 @@ import { DepartmentRepository } from '../repositories/department/department.repo
     {
       provide: CreateDepartmentUsecase,
       useFactory: (
-        departmentService: DepartmentServiceInterface,
+        departmentService: DepartmentRepositoryInterface,
         exceptionServiceInterface: ExcetionsServiceInterface
       ) => {
         return new CreateDepartmentUsecase(departmentService, exceptionServiceInterface)
@@ -39,7 +39,7 @@ import { DepartmentRepository } from '../repositories/department/department.repo
     },
     {
       provide: ListDepartmentUsecase,
-      useFactory: (departmentService: DepartmentServiceInterface) => {
+      useFactory: (departmentService: DepartmentRepositoryInterface) => {
         return new ListDepartmentUsecase(departmentService)
       },
       inject: [DepartmentRepository, ExceptionsService]

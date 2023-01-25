@@ -1,9 +1,9 @@
-import { DepartmentProps, DepartmentServiceInterface } from "src/domain/interfaces/deparment.interface";
+import { DepartmentProps, DepartmentRepositoryInterface } from "src/domain/interfaces/deparment.interface";
 import { ExcetionsServiceInterface } from "src/domain/interfaces/exception.interface";
 
 export class CreateDepartmentUsecase {
   constructor(
-    private departmentService: DepartmentServiceInterface,
+    private departmentService: DepartmentRepositoryInterface,
     private exceptionService: ExcetionsServiceInterface
   ) { }
 

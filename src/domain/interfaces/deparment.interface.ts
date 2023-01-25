@@ -9,7 +9,7 @@ export interface DepartmentProps {
   color: string
 }
 
-export abstract class DepartmentServiceInterface {
+export abstract class DepartmentRepositoryInterface {
   abstract listDepartments(): Promise<Department[]>
   abstract findDepartmentById(id: string): Promise<Department>
   abstract findDepartmentByTitle(title: string): Promise<Department>
