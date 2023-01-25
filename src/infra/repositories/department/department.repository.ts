@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Department } from '@prisma/client';
-import { CreateDepartmentProps, DepartmentServiceInterface } from 'src/domain/interfaces/deparment.interface';
+import { DepartmentProps, DepartmentServiceInterface } from 'src/domain/interfaces/deparment.interface';
 import { PrismaService } from 'src/infra/database/prisma/prisma.service';
 
 @Injectable()
@@ -25,7 +25,7 @@ export class DepartmentRepository implements DepartmentServiceInterface {
     })
   }
 
-  async createDepartment({ title, accountable, acronym, color }: CreateDepartmentProps): Promise<Department> {
+  async createDepartment({ title, accountable, acronym, color }: DepartmentProps): Promise<Department> {
     return await this.prisma.department.create({
       data: { title, accountable, acronym, color }
     })

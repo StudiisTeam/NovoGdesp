@@ -1,4 +1,4 @@
-import { CreateDepartmentProps, DepartmentServiceInterface } from "src/domain/interfaces/deparment.interface";
+import { DepartmentProps, DepartmentServiceInterface } from "src/domain/interfaces/deparment.interface";
 import { ExcetionsServiceInterface } from "src/domain/interfaces/exception.interface";
 
 export class CreateDepartmentUsecase {
@@ -7,7 +7,7 @@ export class CreateDepartmentUsecase {
     private exceptionService: ExcetionsServiceInterface
   ) { }
 
-  async handle({ title, accountable, acronym, color }: CreateDepartmentProps) {
+  async handle({ title, accountable, acronym, color }: DepartmentProps) {
     const existDepartment = await this.departmentService.findDepartmentByTitle(title);
 
     if (existDepartment)
