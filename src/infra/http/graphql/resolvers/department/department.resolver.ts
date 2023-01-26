@@ -4,8 +4,9 @@ import { CreateDepartmentUsecase } from 'src/domain/use-cases/department/create-
 import { ListDepartmentUsecase } from 'src/domain/use-cases/department/list-departments.usecase';
 import { UpdateDepartmentUseCase } from 'src/domain/use-cases/department/update-department.usecase';
 import { AuthorizationGuard } from '../../../auth/authorization.guard';
-import { CreateDepartmentInput } from '../../inputs/create-department-input';
-import { UpdateDepartmentInput } from '../../inputs/update-department-input';
+import { CreateDepartmentInput } from '../../inputs/department/create-department-input';
+import { UpdateDepartmentInput } from '../../inputs/department/update-department-input';
+
 import { Department } from '../../models/department';
 
 @Resolver()
