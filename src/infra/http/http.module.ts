@@ -14,6 +14,7 @@ import { ListDepartmentUsecase } from 'src/domain/use-cases/department/list-depa
 import { RepositoriesModule } from '../repositories/repositories.module';
 import { DepartmentRepository } from '../repositories/department/department.repository';
 import { UpdateDepartmentUseCase } from 'src/domain/use-cases/department/update-department.usecase';
+import { DeleteDepartmentUseCase } from 'src/domain/use-cases/department/delete-department.usecase';
 
 @Module({
   imports: [
@@ -49,9 +50,19 @@ import { UpdateDepartmentUseCase } from 'src/domain/use-cases/department/update-
       provide: UpdateDepartmentUseCase,
       useFactory: (
         departmentService: DepartmentRepositoryInterface,
-        exceptionServiceInterface: ExcetionsServiceInterface
+        exceptionService: ExcetionsServiceInterface
       ) => {
-        return new UpdateDepartmentUseCase(departmentService, exceptionServiceInterface)
+        return new UpdateDepartmentUseCase(departmentService, exceptionService)
+      },
+      inject: [DepartmentRepository, ExceptionsService]
+    },
+    {
+      provide: DeleteDepartmentUseCase,
+      useFactory: (
+        departmentService: DepartmentRepositoryInterface,
+        exceptionService: ExcetionsServiceInterface
+      ) => {
+        return new DeleteDepartmentUseCase(departmentService, exceptionService)
       },
       inject: [DepartmentRepository, ExceptionsService]
     },

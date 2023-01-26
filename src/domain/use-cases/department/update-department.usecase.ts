@@ -8,8 +8,8 @@ export class UpdateDepartmentUseCase {
   ) { }
 
   async handle(data: DepartmentProps) {
-    const deparment = await this.departmentRepository.findDepartmentById(data.id)
-    if (!deparment) {
+    const department = await this.departmentRepository.findDepartmentById(data.id)
+    if (!department) {
       return this.exceptionRepository.badRequestException({ message: "Department not found", code_error: 404 })
     }
     return await this.departmentRepository.updateDepartment(data)

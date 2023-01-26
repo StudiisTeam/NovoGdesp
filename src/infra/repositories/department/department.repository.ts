@@ -44,4 +44,12 @@ export class DepartmentRepository implements DepartmentRepositoryInterface {
       }
     })
   }
+
+  async deleteDepartment(id: string): Promise<void> {
+    await this.prisma.department.delete({
+      where: {
+        id
+      }
+    })
+  }
 }

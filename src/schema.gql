@@ -37,6 +37,7 @@ type Query {
 type Mutation {
   createDepartment(data: CreateDepartmentInput!): Department!
   updateDepartment(data: UpdateDepartmentInput!): Department!
+  deleteDepartment(id: String!): String!
 }
 
 input CreateDepartmentInput {

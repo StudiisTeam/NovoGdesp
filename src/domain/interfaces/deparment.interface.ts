@@ -15,4 +15,5 @@ export abstract class DepartmentRepositoryInterface {
   abstract findDepartmentByTitle(title: string): Promise<Department>
   abstract createDepartment(data: DepartmentProps): Promise<Department>
   abstract updateDepartment(data: DepartmentProps): Promise<Department>
+  abstract deleteDepartment(id: string): Promise<void>
 }
