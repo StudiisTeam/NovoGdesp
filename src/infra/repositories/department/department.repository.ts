@@ -30,4 +30,18 @@ export class DepartmentRepository implements DepartmentRepositoryInterface {
       data: { title, accountable, acronym, color }
     })
   }
+
+  async updateDepartment(data: DepartmentProps): Promise<Department> {
+    return await this.prisma.department.update({
+      where: {
+        id: data.id
+      },
+      data: {
+        title: data.title,
+        acronym: data.acronym,
+        accountable: data.accountable,
+        color: data.accountable,
+      }
+    })
+  }
 }
