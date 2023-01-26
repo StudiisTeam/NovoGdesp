@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Department } from '@prisma/client';
-import { DepartmentProps, DepartmentRepositoryInterface } from 'src/domain/interfaces/deparment.interface';
+import { Department, DepartmentProps, DepartmentRepositoryInterface } from 'src/domain/interfaces/deparment.interface';
 import { PrismaService } from 'src/infra/database/prisma/prisma.service';
 
 @Injectable()

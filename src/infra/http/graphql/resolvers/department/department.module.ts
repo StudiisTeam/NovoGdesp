@@ -55,6 +55,5 @@ import { DepartmentResolver } from './department.resolver';
       inject: [DepartmentRepository, ExceptionsService]
     },
   ],
-  exports: [DepartmentResolver]
 })
 export class DepartmentModule { }

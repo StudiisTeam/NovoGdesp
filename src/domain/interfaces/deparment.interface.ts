@@ -1,12 +1,19 @@
-import { Department } from "@prisma/client";
-
-
 export interface DepartmentProps {
   id?: string
   title: string
   accountable: string
   acronym: string
   color: string
+}
+
+export type Department = {
+  id: string;
+  title: string;
+  accountable: string | null;
+  acronym: string | null;
+  color: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export abstract class DepartmentRepositoryInterface {
