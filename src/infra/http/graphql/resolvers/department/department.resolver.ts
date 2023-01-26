@@ -20,9 +20,9 @@ export class DepartmentResolver {
   ) { }
 
   @Query(() => [Department])
-  @UseGuards(AuthorizationGuard)
+  // @UseGuards(AuthorizationGuard)
   async departments() {
-    return await this.listDepartmentUseCase.handle();
+    return this.listDepartmentUseCase.handle();
   }
 
   @Mutation(() => Department)

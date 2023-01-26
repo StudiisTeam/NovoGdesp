@@ -15,6 +15,7 @@ import { RepositoriesModule } from '../repositories/repositories.module';
 import { DepartmentRepository } from '../repositories/department/department.repository';
 import { UpdateDepartmentUseCase } from 'src/domain/use-cases/department/update-department.usecase';
 import { DeleteDepartmentUseCase } from 'src/domain/use-cases/department/delete-department.usecase';
+import { ResolversModule } from './graphql/resolvers/resolvers.module';
 
 @Module({
   imports: [
@@ -24,48 +25,7 @@ import { DeleteDepartmentUseCase } from 'src/domain/use-cases/department/delete-
       driver: ApolloFederationDriver,
       autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql')
     }),
-    DomainModule,
-    RepositoriesModule
+    ResolversModule
   ],
-  providers: [
-    DepartmentResolver,
-    {
-      provide: ListDepartmentUsecase,
-      useFactory: (departmentService: DepartmentRepositoryInterface) => {
-        return new ListDepartmentUsecase(departmentService)
-      },
-      inject: [DepartmentRepository, ExceptionsService]
-    },
-    {
-      provide: CreateDepartmentUsecase,
-      useFactory: (
-        departmentService: DepartmentRepositoryInterface,
-        exceptionServiceInterface: ExcetionsServiceInterface
-      ) => {
-        return new CreateDepartmentUsecase(departmentService, exceptionServiceInterface)
-      },
-      inject: [DepartmentRepository, ExceptionsService]
-    },
-    {
-      provide: UpdateDepartmentUseCase,
-      useFactory: (
-        departmentService: DepartmentRepositoryInterface,
-        exceptionService: ExcetionsServiceInterface
-      ) => {
-        return new UpdateDepartmentUseCase(departmentService, exceptionService)
-      },
-      inject: [DepartmentRepository, ExceptionsService]
-    },
-    {
-      provide: DeleteDepartmentUseCase,
-      useFactory: (
-        departmentService: DepartmentRepositoryInterface,
-        exceptionService: ExcetionsServiceInterface
-      ) => {
-        return new DeleteDepartmentUseCase(departmentService, exceptionService)
-      },
-      inject: [DepartmentRepository, ExceptionsService]
-    },
-  ]
 })
 export class HttpModule { }

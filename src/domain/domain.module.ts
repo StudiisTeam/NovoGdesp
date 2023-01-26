@@ -1,8 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ExceptionsService } from '../infra/helpers/exceptions/exceptions.service';
 
-@Module({
-  providers: [ExceptionsService],
-  exports: [ExceptionsService]
-})
+@Module({})
 export class DomainModule { }
