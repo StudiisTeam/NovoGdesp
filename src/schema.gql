@@ -30,14 +30,25 @@ type Department {
   color: String!
 }
 
+type Modality {
+  id: Int!
+
+  """Example field (placeholder)"""
+  name: String!
+}
+
 type Query {
   departments: [Department!]!
+  modality: [Modality!]!
 }
 
 type Mutation {
   createDepartment(data: CreateDepartmentInput!): Department!
   updateDepartment(data: UpdateDepartmentInput!): Department!
   deleteDepartment(id: String!): String!
+  createModality(data: CreateModalityInput!): Modality!
+  updateModality(data: UpdateModalityInput!): Modality!
+  deleteModality(id: Int!): String!
 }
 
 input CreateDepartmentInput {
@@ -53,6 +64,16 @@ input UpdateDepartmentInput {
   accountable: String!
   acronym: String!
   color: String!
+}
+
+input CreateModalityInput {
+  """Example field (placeholder)"""
+  name: String!
+}
+
+input UpdateModalityInput {
+  name: String!
+  id: Int!
 }
 
 scalar link__Import
