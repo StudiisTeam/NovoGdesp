@@ -1,8 +1,8 @@
 import { DepartmentRepositoryInterface } from "src/domain/interfaces/deparment.interface";
 
 export class ListDepartmentUsecase {
-  constructor(private departmentService: DepartmentRepositoryInterface) { }
+  constructor(private departmentRepository: DepartmentRepositoryInterface) { }
   async handle() {
-    return await this.departmentService.listDepartments()
+    return await this.departmentRepository.listDepartments()
   }
 }

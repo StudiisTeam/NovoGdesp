@@ -1,5 +1,5 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { Modality } from '../../../domain/models/modality.entity';
+import { Modality } from '../../../domain/models/modality';
 import { ListModalityUsecase } from 'src/application/use-cases/modality/list-modality.usecase';
 import { CreateModalityUseCase } from 'src/application/use-cases/modality/create-modality.usecase';
 import { UpdateModalityUseCase } from 'src/application/use-cases/modality/update-modality.usecase';
