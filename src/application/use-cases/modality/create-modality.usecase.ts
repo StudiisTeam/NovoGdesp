@@ -3,16 +3,16 @@ import { ModalityProps, ModalityRepositoryInterface } from "src/domain/interface
 
 export class CreateModalityUseCase {
   constructor(
-    private modalityRepostory: ModalityRepositoryInterface,
+    private modalityRepository: ModalityRepositoryInterface,
     private exceptionService: ExcetionsServiceInterface
   ) { }
 
   async handle({ name }: ModalityProps) {
-    const modality = await this.modalityRepostory.findModalityByName(name)
+    const modality = await this.modalityRepository.findModalityByName(name)
 
     if (modality)
       return this.exceptionService.badRequestException({ message: 'Modality alread exists', code_error: 400 })
 
-    return await this.modalityRepostory.createModality(name)
+    return await this.modalityRepository.createModality(name)
   }
 }

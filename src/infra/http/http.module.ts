@@ -14,7 +14,6 @@ import { ResolverModule } from '../../presentation/resolvers/resolver.module';
       driver: ApolloFederationDriver,
       autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql')
     }),
-    ResolverModule
   ],
 })
 export class HttpModule { }
