@@ -8,7 +8,7 @@ import { UpdateDepartmentUseCase } from 'src/domain/use-cases/department/update-
 import { ExceptionsService } from 'src/infra/helpers/exceptions/exceptions.service';
 import { DepartmentRepository } from 'src/infra/repositories/department/department.repository';
 import { RepositoriesModule } from 'src/infra/repositories/repositories.module';
-import { DepartmentResolver } from './department.resolver';
+import { DepartmentResolver } from './resolvers/department.resolver';
 
 @Module({
   imports: [
