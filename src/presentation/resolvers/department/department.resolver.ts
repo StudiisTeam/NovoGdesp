@@ -1,14 +1,14 @@
 import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { CreateDepartmentUsecase } from 'src/domain/use-cases/department/create-department.usecase';
-import { DeleteDepartmentUseCase } from 'src/domain/use-cases/department/delete-department.usecase';
-import { ListDepartmentUsecase } from 'src/domain/use-cases/department/list-departments.usecase';
-import { UpdateDepartmentUseCase } from 'src/domain/use-cases/department/update-department.usecase';
-import { AuthorizationGuard } from '../../../auth/authorization.guard';
-import { CreateDepartmentInput } from '../inputs/create-department-input';
-import { UpdateDepartmentInput } from '../inputs/update-department-input';
+import { CreateDepartmentUsecase } from 'src/application/use-cases/department/create-department.usecase';
+import { DeleteDepartmentUseCase } from 'src/application/use-cases/department/delete-department.usecase';
+import { ListDepartmentUsecase } from 'src/application/use-cases/department/list-departments.usecase';
+import { UpdateDepartmentUseCase } from 'src/application/use-cases/department/update-department.usecase';
+import { AuthorizationGuard } from '../../../infra/http/auth/authorization.guard';
+import { CreateDepartmentInput } from '../../../infra/http/graphql/inputs/deparment/create-department-input';
+import { UpdateDepartmentInput } from '../../../infra/http/graphql/inputs/deparment/update-department-input';
 
-import { Department } from '../models/department';
+import { Department } from '../../../domain/models/department';
 
 @Resolver()
 export class DepartmentResolver {

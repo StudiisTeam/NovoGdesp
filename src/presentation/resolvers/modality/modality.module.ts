@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ExcetionsServiceInterface } from 'src/domain/interfaces/exception.interface';
 import { ModalityRepositoryInterface } from 'src/domain/interfaces/modality.inteface';
-import { CreateModalityUseCase } from 'src/domain/use-cases/modality/create-modality.usecase';
-import { DeleteModalityUseCase } from 'src/domain/use-cases/modality/delete-modality.usecase';
-import { ListModalityUsecase } from 'src/domain/use-cases/modality/list-modality.usecase';
-import { UpdateModalityUseCase } from 'src/domain/use-cases/modality/update-modality.usecase';
-import { ExceptionsService } from 'src/infra/helpers/exceptions/exceptions.service';
+import { CreateModalityUseCase } from 'src/application/use-cases/modality/create-modality.usecase';
+import { DeleteModalityUseCase } from 'src/application/use-cases/modality/delete-modality.usecase';
+import { ListModalityUsecase } from 'src/application/use-cases/modality/list-modality.usecase';
+import { UpdateModalityUseCase } from 'src/application/use-cases/modality/update-modality.usecase';
+import { ExceptionsService } from 'src/presentation/helpers/exceptions.service';
 import { ModalityRepository } from 'src/infra/repositories/modality/modality.repository';
 import { RepositoriesModule } from 'src/infra/repositories/repositories.module';
-import { ModalityResolver } from './resolvers/modality.resolver';
+import { ModalityResolver } from './modality.resolver';
 
 @Module({
   imports: [RepositoriesModule],

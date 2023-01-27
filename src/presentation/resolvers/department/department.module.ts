@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { DepartmentRepositoryInterface } from 'src/domain/interfaces/deparment.interface';
 import { ExcetionsServiceInterface } from 'src/domain/interfaces/exception.interface';
-import { CreateDepartmentUsecase } from 'src/domain/use-cases/department/create-department.usecase';
-import { DeleteDepartmentUseCase } from 'src/domain/use-cases/department/delete-department.usecase';
-import { ListDepartmentUsecase } from 'src/domain/use-cases/department/list-departments.usecase';
-import { UpdateDepartmentUseCase } from 'src/domain/use-cases/department/update-department.usecase';
-import { ExceptionsService } from 'src/infra/helpers/exceptions/exceptions.service';
+import { CreateDepartmentUsecase } from 'src/application/use-cases/department/create-department.usecase';
+import { DeleteDepartmentUseCase } from 'src/application/use-cases/department/delete-department.usecase';
+import { ListDepartmentUsecase } from 'src/application/use-cases/department/list-departments.usecase';
+import { UpdateDepartmentUseCase } from 'src/application/use-cases/department/update-department.usecase';
+import { ExceptionsService } from 'src/presentation/helpers/exceptions.service';
 import { DepartmentRepository } from 'src/infra/repositories/department/department.repository';
 import { RepositoriesModule } from 'src/infra/repositories/repositories.module';
-import { DepartmentResolver } from './resolvers/department.resolver';
+import { DepartmentResolver } from './department.resolver';
 
 @Module({
   imports: [
