@@ -4,7 +4,6 @@ import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { DatabaseModule } from 'src/infra/database/database.module';
 import { ApolloFederationDriver } from '@nestjs/apollo';
-import { ResolverModule } from '../../presentation/resolvers/resolver.module';
 
 @Module({
   imports: [

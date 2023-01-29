@@ -9,7 +9,8 @@ export class PermissionsGuard implements CanActivate {
 
   canActivate(context: ExecutionContext): boolean {
     const req = GqlExecutionContext.create(context).getContext().req;
-    const userPermissions = req.user?.permissions || []
+
+    const userPermissions = req?.auth?.permissions || []
     const requiredPemissions = this.reflactor.get('permissions', context.getHandler()) || []
     const hasAllRequiredPermissions = requiredPemissions.every((permissions: any) => userPermissions.includes(permissions))
 
