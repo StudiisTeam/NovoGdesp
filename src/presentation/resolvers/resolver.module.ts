@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { BiddingProcessModule } from './bidding-process/bidding-process.module';
 import { DepartmentModule } from './department/department.module';
 import { ModalityModule } from './modality/modality.module';
 
@@ -6,6 +7,7 @@ import { ModalityModule } from './modality/modality.module';
   imports: [
     DepartmentModule,
     ModalityModule,
+    BiddingProcessModule
   ],
 })
 

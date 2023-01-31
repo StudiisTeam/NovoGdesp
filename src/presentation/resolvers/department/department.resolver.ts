@@ -28,7 +28,8 @@ export class DepartmentResolver {
   }
 
   @Mutation(() => Department)
-  @UseGuards(AuthorizationGuard)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['create:departments'])
   async createDepartment(
     @Args('data') data: CreateDepartmentInput
   ) {
@@ -36,7 +37,8 @@ export class DepartmentResolver {
   }
 
   @Mutation(() => Department)
-  @UseGuards(AuthorizationGuard)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['update:departments'])
   async updateDepartment(
     @Args('data') data: UpdateDepartmentInput
   ) {
@@ -44,7 +46,8 @@ export class DepartmentResolver {
   }
 
   @Mutation(() => String)
-  @UseGuards(AuthorizationGuard)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['delete:departments'])
   async deleteDepartment(
     @Args('id') id: string
   ) {

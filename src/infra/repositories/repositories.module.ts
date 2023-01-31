@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from '../database/database.module';
+import { BiddingProcessRepository } from './bidding-process/bidding-process.repository';
 import { DepartmentRepository } from './department/department.repository';
 import { ModalityRepository } from './modality/modality.repository';
 
@@ -7,11 +8,13 @@ import { ModalityRepository } from './modality/modality.repository';
   imports: [DatabaseModule],
   providers: [
     DepartmentRepository,
-    ModalityRepository
+    ModalityRepository,
+    BiddingProcessRepository
   ],
   exports: [
     DepartmentRepository,
-    ModalityRepository
+    ModalityRepository,
+    BiddingProcessRepository
   ]
 })
 export class RepositoriesModule { }
