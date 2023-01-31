@@ -22,6 +22,38 @@ directive @inaccessible on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUM
 
 directive @override(from: String!) on FIELD_DEFINITION
 
+type BiddingProcess {
+  """Id field (placeholder)"""
+  id: String!
+
+  """Process Identifier field (placeholder)"""
+  processIdentifier: String!
+
+  """process Number field (placeholder)"""
+  processNumber: String!
+
+  """process Year field (placeholder)"""
+  processYear: Int!
+
+  """Example field (placeholder)"""
+  modalityId: Int!
+
+  """Example field (placeholder)"""
+  callingInstrument: String!
+
+  """Example field (placeholder)"""
+  object: String!
+
+  """Example field (placeholder)"""
+  executionRegime: String!
+
+  """Example field (placeholder)"""
+  guarantee: Boolean!
+
+  """Example field (placeholder)"""
+  agreement: Boolean!
+}
+
 type Department {
   id: ID!
   title: String!
@@ -40,6 +72,7 @@ type Modality {
 type Query {
   departments: [Department!]!
   modality: [Modality!]!
+  biddingProcess: [BiddingProcess!]!
 }
 
 type Mutation {
@@ -49,6 +82,9 @@ type Mutation {
   createModality(data: CreateModalityInput!): Modality!
   updateModality(data: UpdateModalityInput!): Modality!
   deleteModality(id: Int!): String!
+  createBiddingProcess(data: CreateBiddingProcessInput!): BiddingProcess!
+  updateBiddingProcess(data: UpdateBiddingProcessInput!, id: String!): BiddingProcess!
+  deleteBiddingProcess(id: String!): String!
 }
 
 input CreateDepartmentInput {
@@ -74,6 +110,51 @@ input CreateModalityInput {
 input UpdateModalityInput {
   name: String!
   id: Int!
+}
+
+input CreateBiddingProcessInput {
+  """Example field (placeholder)"""
+  processIdentifier: String!
+
+  """Example field (placeholder)"""
+  processNumber: String!
+
+  """Example field (placeholder)"""
+  processYear: Int!
+
+  """Example field (placeholder)"""
+  modalityId: Int!
+
+  """Example field (placeholder)"""
+  departmentId: String!
+
+  """Example field (placeholder)"""
+  callingInstrument: String!
+
+  """Example field (placeholder)"""
+  object: String!
+
+  """Example field (placeholder)"""
+  executionRegime: String!
+
+  """Example field (placeholder)"""
+  guarantee: Boolean!
+
+  """Example field (placeholder)"""
+  agreement: Boolean!
+}
+
+input UpdateBiddingProcessInput {
+  processIdentifier: String!
+  processNumber: String
+  processYear: Float
+  modalityId: Float
+  departmentId: String
+  callingInstrument: String
+  object: String
+  executionRegime: String
+  guarantee: Boolean
+  agreement: Boolean
 }
 
 scalar link__Import

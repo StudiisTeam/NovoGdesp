@@ -7,7 +7,7 @@ import { PresentationModule } from './presentation/presentation.module';
   imports: [
     InfraModule,
     DomainModule,
-    PresentationModule
+    PresentationModule,
   ],
   controllers: [],
   providers: [],

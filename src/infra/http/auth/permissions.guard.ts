@@ -1,7 +1,6 @@
 import { CanActivate, ExecutionContext, ForbiddenException, Injectable } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { Reflector } from '@nestjs/core'
-import { GraphQLRequest } from 'apollo-server-types';
 
 @Injectable()
 export class PermissionsGuard implements CanActivate {

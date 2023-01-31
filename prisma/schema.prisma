@@ -47,8 +47,8 @@ model BiddingProcess {
 model BiddingProcessesOnDepartments {
   biddingProcessId String
   departmentId     String
-  BiddingProcess   BiddingProcess @relation(fields: [biddingProcessId], references: [id])
-  Department       Department     @relation(fields: [departmentId], references: [id])
+  BiddingProcess   BiddingProcess @relation(fields: [biddingProcessId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  Department       Department     @relation(fields: [departmentId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 
   @@id([biddingProcessId, departmentId])
 }
