@@ -6,6 +6,9 @@ import { UpdateModalityUseCase } from 'src/application/use-cases/modality/update
 import { DeleteModalityUseCase } from 'src/application/use-cases/modality/delete-modality.usecase';
 import { CreateModalityInput } from 'src/infra/http/graphql/inputs/modality/create-modality.input';
 import { UpdateModalityInput } from 'src/infra/http/graphql/inputs/modality/update-modality.input';
+import { PermissionsGuard } from 'src/infra/http/auth/permissions.guard';
+import { AuthorizationGuard } from 'src/infra/http/auth/authorization.guard';
+import { SetMetadata, UseGuards } from '@nestjs/common';
 
 @Resolver(() => Modality)
 export class ModalityResolver {
@@ -18,21 +21,29 @@ export class ModalityResolver {
   ) { }
 
   @Mutation(() => Modality)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['read:departments'])
   async createModality(@Args('data') data: CreateModalityInput) {
     return await this.createModalityUseCase.handle(data);
   }
 
   @Query(() => [Modality], { name: 'modality' })
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['read:departments'])
   listModalities() {
     return this.listModalityUseCase.handle();
   }
 
   @Mutation(() => Modality)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['read:departments'])
   updateModality(@Args('data') data: UpdateModalityInput) {
     return this.updateModalityUseCase.handle(data);
   }
 
   @Mutation(() => String)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['read:departments'])
   deleteModality(@Args('id', { type: () => Int }) id: number) {
     return this.deleteModalityUseCase.handle(id)
   }
