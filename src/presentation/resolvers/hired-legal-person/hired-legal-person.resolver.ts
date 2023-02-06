@@ -1,33 +1,33 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { Hired } from './entities/hired.entity';
-import { CreateHiredInput } from './dto/create-hired.input';
-import { UpdateHiredInput } from './dto/update-hired.input';
+import { HiredLegalPerson } from 'src/domain/models/hired-legal-person';
+import { CreateHiredLegalPersonInput } from 'src/infra/http/graphql/inputs/hired-legal-person/create-hired-legal-Person.input';
+import { UpdateHiredLegalPersonInput } from 'src/infra/http/graphql/inputs/hired-legal-person/update-hired-legal-Person.input';
 
-@Resolver(() => Hired)
+@Resolver()
 export class HiredLegalPersonResolver {
   constructor(private readonly hiredService: HiredService) { }
 
-  @Mutation(() => Hired)
-  createHired(@Args('createHiredInput') createHiredInput: CreateHiredInput) {
+  @Mutation(() => HiredLegalPerson)
+  createHired(@Args('createHiredInput') createHiredInput: CreateHiredLegalPersonInput) {
     return this.hiredService.create(createHiredInput);
   }
 
-  @Query(() => [Hired], { name: 'hired' })
+  @Query(() => [HiredLegalPerson], { name: 'hired' })
   findAll() {
     return this.hiredService.findAll();
   }
 
-  @Query(() => Hired, { name: 'hired' })
+  @Query(() => HiredLegalPerson, { name: 'hired' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.hiredService.findOne(id);
   }
 
-  @Mutation(() => Hired)
-  updateHired(@Args('updateHiredInput') updateHiredInput: UpdateHiredInput) {
+  @Mutation(() => HiredLegalPerson)
+  updateHired(@Args('updateHiredInput') updateHiredInput: UpdateHiredLegalPersonInput) {
     return this.hiredService.update(updateHiredInput.id, updateHiredInput);
   }
 
-  @Mutation(() => Hired)
+  @Mutation(() => HiredLegalPerson)
   removeHired(@Args('id', { type: () => Int }) id: number) {
     return this.hiredService.remove(id);
   }
