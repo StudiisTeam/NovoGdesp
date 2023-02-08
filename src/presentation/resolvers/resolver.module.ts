@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { BiddingProcessModule } from './bidding-process/bidding-process.module';
 import { DepartmentModule } from './department/department.module';
-import { HiredModule } from './hired/hired.module';
+import { HiredLegalPersonModule } from './hired-legal-person/hired-legal-person.module';
 import { ModalityModule } from './modality/modality.module';
 
 @Module({
@@ -9,7 +9,7 @@ import { ModalityModule } from './modality/modality.module';
     DepartmentModule,
     ModalityModule,
     BiddingProcessModule,
-    HiredModule
+    HiredLegalPersonModule
   ],
 })
 

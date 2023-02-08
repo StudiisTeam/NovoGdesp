@@ -55,8 +55,8 @@ model BiddingProcessesOnDepartments {
 
 model HiredLegalPerson {
   id            String   @id @default(uuid())
-  corporateName String
-  cnpj          String
+  corporateName String   @unique
+  cnpj          String   @unique
   address       String?
   phone         String?
   email         String?
