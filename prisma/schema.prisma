@@ -52,3 +52,20 @@ model BiddingProcessesOnDepartments {
 
   @@id([biddingProcessId, departmentId])
 }
+
+model HiredLegalPerson {
+  id            String   @id @default(uuid())
+  corporateName String   @unique
+  cnpj          String   @unique
+  address       String?
+  phone         String?
+  email         String?
+  color         String
+  acronym       String
+  codeBank      Int?
+  nameBank      String?
+  agencyBank    Int?
+  accountBank   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+}

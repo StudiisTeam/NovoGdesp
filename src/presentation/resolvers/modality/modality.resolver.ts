@@ -22,28 +22,28 @@ export class ModalityResolver {
 
   @Mutation(() => Modality)
   @UseGuards(AuthorizationGuard, PermissionsGuard)
-  @SetMetadata('permissions', ['read:departments'])
+  @SetMetadata('permissions', ['create:modality'])
   async createModality(@Args('data') data: CreateModalityInput) {
     return await this.createModalityUseCase.handle(data);
   }
 
   @Query(() => [Modality], { name: 'modality' })
   @UseGuards(AuthorizationGuard, PermissionsGuard)
-  @SetMetadata('permissions', ['read:departments'])
+  @SetMetadata('permissions', ['read:modality'])
   listModalities() {
     return this.listModalityUseCase.handle();
   }
 
   @Mutation(() => Modality)
   @UseGuards(AuthorizationGuard, PermissionsGuard)
-  @SetMetadata('permissions', ['read:departments'])
+  @SetMetadata('permissions', ['update:modality'])
   updateModality(@Args('data') data: UpdateModalityInput) {
     return this.updateModalityUseCase.handle(data);
   }
 
   @Mutation(() => String)
   @UseGuards(AuthorizationGuard, PermissionsGuard)
-  @SetMetadata('permissions', ['read:departments'])
+  @SetMetadata('permissions', ['delete:modality'])
   deleteModality(@Args('id', { type: () => Int }) id: number) {
     return this.deleteModalityUseCase.handle(id)
   }

@@ -62,6 +62,44 @@ type Department {
   color: String!
 }
 
+type HiredLegalPerson {
+  """Example field (placeholder)"""
+  id: String!
+
+  """Example field (placeholder)"""
+  corporateName: String!
+
+  """Example field (placeholder)"""
+  cnpj: String!
+
+  """Example field (placeholder)"""
+  phone: String!
+
+  """Example field (placeholder)"""
+  email: String!
+
+  """Example field (placeholder)"""
+  address: String!
+
+  """Example field (placeholder)"""
+  color: String!
+
+  """Example field (placeholder)"""
+  acronym: String!
+
+  """Example field (placeholder)"""
+  nameBank: String!
+
+  """Example field (placeholder)"""
+  agencyBank: String!
+
+  """Example field (placeholder)"""
+  codeBank: String!
+
+  """Example field (placeholder)"""
+  accountBank: String!
+}
+
 type Modality {
   id: Int!
 
@@ -73,6 +111,7 @@ type Query {
   departments: [Department!]!
   modality: [Modality!]!
   biddingProcess: [BiddingProcess!]!
+  hiredLegalPerson: [HiredLegalPerson!]!
 }
 
 type Mutation {
@@ -85,6 +124,9 @@ type Mutation {
   createBiddingProcess(data: CreateBiddingProcessInput!): BiddingProcess!
   updateBiddingProcess(data: UpdateBiddingProcessInput!, id: String!): BiddingProcess!
   deleteBiddingProcess(id: String!): String!
+  createHiredLegalPerson(data: CreateHiredLegalPersonInput!): HiredLegalPerson!
+  updateHiredLegalPerson(data: UpdateHiredLegalPersonInput!): HiredLegalPerson!
+  removeHiredLegalPerson(id: String!): HiredLegalPerson!
 }
 
 input CreateDepartmentInput {
@@ -155,6 +197,79 @@ input UpdateBiddingProcessInput {
   executionRegime: String
   guarantee: Boolean
   agreement: Boolean
+}
+
+input CreateHiredLegalPersonInput {
+  """Example field (placeholder)"""
+  corporateName: String!
+
+  """Example field (placeholder)"""
+  cnpj: String!
+
+  """Example field (placeholder)"""
+  phone: String!
+
+  """Example field (placeholder)"""
+  email: String!
+
+  """Example field (placeholder)"""
+  address: String!
+
+  """Example field (placeholder)"""
+  color: String!
+
+  """Example field (placeholder)"""
+  acronym: String!
+
+  """Example field (placeholder)"""
+  nameBank: String!
+
+  """Example field (placeholder)"""
+  agencyBank: Int!
+
+  """Example field (placeholder)"""
+  codeBank: Int!
+
+  """Example field (placeholder)"""
+  accountBank: String!
+}
+
+input UpdateHiredLegalPersonInput {
+  """Example field (placeholder)"""
+  corporateName: String!
+
+  """Example field (placeholder)"""
+  cnpj: String!
+
+  """Example field (placeholder)"""
+  phone: String!
+
+  """Example field (placeholder)"""
+  email: String!
+
+  """Example field (placeholder)"""
+  address: String!
+
+  """Example field (placeholder)"""
+  color: String!
+
+  """Example field (placeholder)"""
+  acronym: String!
+
+  """Example field (placeholder)"""
+  nameBank: String!
+
+  """Example field (placeholder)"""
+  agencyBank: Int!
+
+  """Example field (placeholder)"""
+  codeBank: Int!
+
+  """Example field (placeholder)"""
+  accountBank: String!
+
+  """Example field (placeholder)"""
+  id: String!
 }
 
 scalar link__Import
