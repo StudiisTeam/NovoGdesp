@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { BiddingProcess, BiddingProcessProps, BiddingProcessRepositoryInterface } from 'src/domain/interfaces/bidding-process';
+import { BiddingProcess, BiddingProcessProps, BiddingProcessRepositoryInterface } from 'src/domain/interfaces/bidding-process.interface';
 import { PrismaService } from 'src/infra/database/prisma/prisma.service';
 
 @Injectable()

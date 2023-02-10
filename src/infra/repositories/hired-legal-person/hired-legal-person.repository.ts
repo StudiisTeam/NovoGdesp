@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { HiredLegalPerson, HiredLegalPersonProps, HiredLegalPersonRepositoryInterface } from 'src/domain/interfaces/hiredLegalPerson';
+import { HiredLegalPerson, CreateHiredLegalPersonProps, UpdateHiredLegalPersonProps, HiredLegalPersonRepositoryInterface } from 'src/domain/interfaces/hired-legal-person.interface';
 import { PrismaService } from 'src/infra/database/prisma/prisma.service';
 
 @Injectable()
@@ -18,11 +18,11 @@ export class HiredLegalPersonRepository implements HiredLegalPersonRepositoryInt
     return await this.prisma.hiredLegalPerson.findUnique({ where: { cnpj } })
   }
 
-  async createHiredLegalPerson(data: HiredLegalPersonProps): Promise<HiredLegalPerson> {
+  async createHiredLegalPerson(data: CreateHiredLegalPersonProps): Promise<HiredLegalPerson> {
     return await this.prisma.hiredLegalPerson.create({ data: data })
   }
 
-  async updateHiredLegalPerson(data: HiredLegalPersonProps, id: string): Promise<HiredLegalPerson> {
+  async updateHiredLegalPerson(data: UpdateHiredLegalPersonProps, id: string): Promise<HiredLegalPerson> {
     return await this.prisma.hiredLegalPerson.update({ where: { id }, data: data })
   }
 

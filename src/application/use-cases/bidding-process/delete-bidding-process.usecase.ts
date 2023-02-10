@@ -1,4 +1,4 @@
-import { BiddingProcessRepositoryInterface } from "src/domain/interfaces/bidding-process";
+import { BiddingProcessRepositoryInterface } from "src/domain/interfaces/bidding-process.interface";
 import { ExcetionsServiceInterface } from "src/domain/interfaces/exception.interface";
 
 export class DeleteBiddingProcessUseCase {

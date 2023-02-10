@@ -108,7 +108,7 @@ type Modality {
 }
 
 type Query {
-  departments: [Department!]!
+  department: [Department!]!
   modality: [Modality!]!
   biddingProcess: [BiddingProcess!]!
   hiredLegalPerson: [HiredLegalPerson!]!
@@ -126,7 +126,7 @@ type Mutation {
   deleteBiddingProcess(id: String!): String!
   createHiredLegalPerson(data: CreateHiredLegalPersonInput!): HiredLegalPerson!
   updateHiredLegalPerson(data: UpdateHiredLegalPersonInput!): HiredLegalPerson!
-  removeHiredLegalPerson(id: String!): HiredLegalPerson!
+  deleteHiredLegalPerson(id: String!): String!
 }
 
 input CreateDepartmentInput {
@@ -200,73 +200,31 @@ input UpdateBiddingProcessInput {
 }
 
 input CreateHiredLegalPersonInput {
-  """Example field (placeholder)"""
   corporateName: String!
-
-  """Example field (placeholder)"""
   cnpj: String!
-
-  """Example field (placeholder)"""
   phone: String!
-
-  """Example field (placeholder)"""
   email: String!
-
-  """Example field (placeholder)"""
   address: String!
-
-  """Example field (placeholder)"""
   color: String!
-
-  """Example field (placeholder)"""
   acronym: String!
-
-  """Example field (placeholder)"""
   nameBank: String!
-
-  """Example field (placeholder)"""
   agencyBank: Int!
-
-  """Example field (placeholder)"""
   codeBank: Int!
-
-  """Example field (placeholder)"""
   accountBank: String!
 }
 
 input UpdateHiredLegalPersonInput {
-  """Example field (placeholder)"""
-  corporateName: String!
-
-  """Example field (placeholder)"""
-  cnpj: String!
-
-  """Example field (placeholder)"""
-  phone: String!
-
-  """Example field (placeholder)"""
-  email: String!
-
-  """Example field (placeholder)"""
-  address: String!
-
-  """Example field (placeholder)"""
-  color: String!
-
-  """Example field (placeholder)"""
-  acronym: String!
-
-  """Example field (placeholder)"""
-  nameBank: String!
-
-  """Example field (placeholder)"""
-  agencyBank: Int!
-
-  """Example field (placeholder)"""
-  codeBank: Int!
-
-  """Example field (placeholder)"""
-  accountBank: String!
+  corporateName: String
+  cnpj: String
+  phone: String
+  email: String
+  address: String
+  color: String
+  acronym: String
+  nameBank: String
+  agencyBank: Int
+  codeBank: Int
+  accountBank: String
 
   """Example field (placeholder)"""
   id: String!

@@ -6,36 +6,36 @@ export class UpdateHiredLegalPersonInput extends PartialType(CreateHiredLegalPer
   @Field(() => String, { description: 'Example field (placeholder)' })
   id: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
-  corporateName: string;
+  @Field(() => String, { nullable: true })
+  corporateName?: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { nullable: true })
   cnpj: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { nullable: true })
   phone: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { nullable: true })
   email: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { nullable: true })
   address: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { nullable: true })
   color: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { nullable: true })
   acronym: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { nullable: true })
   nameBank: string;
 
-  @Field(() => Int, { description: 'Example field (placeholder)' })
+  @Field(() => Int, { nullable: true })
   agencyBank: number;
 
-  @Field(() => Int, { description: 'Example field (placeholder)' })
+  @Field(() => Int, { nullable: true })
   codeBank: number;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String, { nullable: true })
   accountBank: string;
 }

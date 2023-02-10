@@ -1,5 +1,5 @@
 import { ExcetionsServiceInterface } from "src/domain/interfaces/exception.interface";
-import { HiredLegalPersonRepositoryInterface } from "src/domain/interfaces/hiredLegalPerson";
+import { HiredLegalPersonRepositoryInterface } from "src/domain/interfaces/hired-legal-person.interface";
 
 export class DeleteHiredLegalPersonUseCase {
   constructor(

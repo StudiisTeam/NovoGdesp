@@ -1,11 +1,16 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { SetMetadata, UseGuards } from '@nestjs/common';
 import { HiredLegalPerson } from 'src/domain/models/hired-legal-person';
-import { DeleteHiredLegalPersonUseCase } from 'src/application/use-cases/hired-legal-person/delete-hired-legal-person.usecase';
-import { ListHiredLegalPersonUsecase } from 'src/application/use-cases/hired-legal-person/list-hired-legal-person.usecase';
-import { UpdateHiredLegalPersonUseCase } from 'src/application/use-cases/hired-legal-person/update-hired-legal-person.usecase';
-import { CreateHiredLegalPersonInput } from 'src/infra/http/graphql/inputs/hired-legal-person/create-hired-legal-Person.input';
 import { UpdateHiredLegalPersonInput } from 'src/infra/http/graphql/inputs/hired-legal-person/update-hired-legal-Person.input';
-import { CreateHiredLegalPersonUsecase } from 'src/application/use-cases/hired-legal-person/create-hired-legal-person.usecase';
+import { CreateHiredLegalPersonInput } from 'src/infra/http/graphql/inputs/hired-legal-person/create-hired-legal-Person.input';
+import { AuthorizationGuard } from 'src/infra/http/auth/authorization.guard';
+import { PermissionsGuard } from 'src/infra/http/auth/permissions.guard';
+import {
+  CreateHiredLegalPersonUsecase,
+  DeleteHiredLegalPersonUseCase,
+  ListHiredLegalPersonUsecase,
+  UpdateHiredLegalPersonUseCase
+} from "src/application/use-cases/hired-legal-person/index"
 
 @Resolver()
 export class HiredLegalPersonResolver {
@@ -17,22 +22,30 @@ export class HiredLegalPersonResolver {
   ) { }
 
   @Mutation(() => HiredLegalPerson)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['create:hiredLegalPerson'])
   createHiredLegalPerson(@Args('data') data: CreateHiredLegalPersonInput) {
     return this.createHiredLegalPersonUsecase.handle(data);
   }
 
   @Query(() => [HiredLegalPerson], { name: 'hiredLegalPerson' })
-  findAllHiredLegalPerson() {
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['read:hiredLegalPerson'])
+  listHiredLegalPerson() {
     return this.listHiredLegalPersonUseCase.handle();
   }
 
   @Mutation(() => HiredLegalPerson)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['update:hiredLegalPerson'])
   updateHiredLegalPerson(@Args('data') data: UpdateHiredLegalPersonInput) {
     return this.updateHiredLegalPersonUseCase.handle(data.id, data);
   }
 
-  @Mutation(() => HiredLegalPerson)
-  removeHiredLegalPerson(@Args('id', { type: () => String }) id: string) {
+  @Mutation(() => String)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['delete:hiredLegalPerson'])
+  deleteHiredLegalPerson(@Args('id', { type: () => String }) id: string) {
     return this.deleteHiredLegalPersonUseCase.handle(id);
   }
 }

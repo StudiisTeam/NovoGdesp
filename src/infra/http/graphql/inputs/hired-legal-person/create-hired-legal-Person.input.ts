@@ -2,36 +2,36 @@ import { InputType, Int, Field } from '@nestjs/graphql';
 
 @InputType()
 export class CreateHiredLegalPersonInput {
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   corporateName: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   cnpj: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   phone: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   email: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   address: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   color: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   acronym: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   nameBank: string;
 
-  @Field(() => Int, { description: 'Example field (placeholder)' })
+  @Field(() => Int)
   agencyBank: number;
 
-  @Field(() => Int, { description: 'Example field (placeholder)' })
+  @Field(() => Int)
   codeBank: number;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   accountBank: string;
 }
