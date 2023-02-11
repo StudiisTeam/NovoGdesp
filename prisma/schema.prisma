@@ -69,3 +69,20 @@ model HiredLegalPerson {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @default(now()) @updatedAt
 }
+
+model HiredPhysicalPerson {
+  id          String   @id @default(uuid())
+  aname       String   @unique
+  cpf         String   @unique
+  address     String?
+  phone       String?
+  email       String?
+  color       String
+  acronym     String
+  codeBank    Int?
+  nameBank    String?
+  agencyBank  Int?
+  accountBank String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+}
