@@ -44,7 +44,7 @@ export type HiredPhysicalPerson = {
 export abstract class HiredPhysicalPersonRepositoryInterface {
   abstract listHiredPhysicalPerson(): Promise<HiredPhysicalPerson[]>
   abstract findHiredPhysicalPersonById(id: string): Promise<HiredPhysicalPerson>
-  abstract findHiredPhysicalPersonByCpf(name: string): Promise<HiredPhysicalPerson>
+  abstract findHiredPhysicalPersonByCpf(cpf: string): Promise<HiredPhysicalPerson>
   abstract createHiredPhysicalPerson(data: CreateHiredPhysicalPersonProps): Promise<HiredPhysicalPerson>
   abstract updateHiredPhysicalPerson(data: UpdateHiredPhysicalPersonProps, id: string): Promise<HiredPhysicalPerson>
   abstract deleteHiredPhysicalPerson(id: string): Promise<void>
