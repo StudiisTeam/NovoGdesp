@@ -29,14 +29,14 @@ export interface UpdateHiredPhysicalPersonProps {
 export type HiredPhysicalPerson = {
   id: string;
   name: string;
-  cpf?: string;
-  phone?: string;
-  email?: string;
-  address?: string;
-  nameBank?: string;
-  agencyBank?: number;
-  codeBank?: number;
-  accountBank?: string;
+  cpf: string;
+  phone: string;
+  email: string;
+  address: string;
+  nameBank: string;
+  agencyBank: number;
+  codeBank: number;
+  accountBank: string;
   acronym: string;
   color: string;
 }
