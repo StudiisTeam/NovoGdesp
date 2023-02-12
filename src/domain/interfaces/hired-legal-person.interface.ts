@@ -44,7 +44,7 @@ export type HiredLegalPerson = {
 export abstract class HiredLegalPersonRepositoryInterface {
   abstract listHiredLegalPerson(): Promise<HiredLegalPerson[]>
   abstract findHiredLegalPersonById(id: string): Promise<HiredLegalPerson>
-  abstract findHiredLegalPersonByCnpj(name: string): Promise<HiredLegalPerson>
+  abstract findHiredLegalPersonByCnpj(cnpj: string): Promise<HiredLegalPerson>
   abstract createHiredLegalPerson(data: CreateHiredLegalPersonProps): Promise<HiredLegalPerson>
   abstract updateHiredLegalPerson(data: UpdateHiredLegalPersonProps, id: string): Promise<HiredLegalPerson>
   abstract deleteHiredLegalPerson(id: string): Promise<void>

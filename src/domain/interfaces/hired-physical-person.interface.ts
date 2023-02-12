@@ -1,6 +1,6 @@
 export interface CreateHiredPhysicalPersonProps {
-  corporateName: string;
-  cnpj: string;
+  name: string;
+  cpf: string;
   phone: string;
   email: string;
   address: string;
@@ -13,8 +13,8 @@ export interface CreateHiredPhysicalPersonProps {
 }
 
 export interface UpdateHiredPhysicalPersonProps {
-  corporateName?: string;
-  cnpj?: string;
+  name?: string;
+  cpf?: string;
   phone?: string;
   email?: string;
   address?: string;
@@ -28,8 +28,8 @@ export interface UpdateHiredPhysicalPersonProps {
 
 export type HiredPhysicalPerson = {
   id: string;
-  corporateName: string;
-  cnpj?: string;
+  name: string;
+  cpf?: string;
   phone?: string;
   email?: string;
   address?: string;
@@ -44,7 +44,7 @@ export type HiredPhysicalPerson = {
 export abstract class HiredPhysicalPersonRepositoryInterface {
   abstract listHiredPhysicalPerson(): Promise<HiredPhysicalPerson[]>
   abstract findHiredPhysicalPersonById(id: string): Promise<HiredPhysicalPerson>
-  abstract findHiredPhysicalPersonByCnpj(name: string): Promise<HiredPhysicalPerson>
+  abstract findHiredPhysicalPersonByCpf(name: string): Promise<HiredPhysicalPerson>
   abstract createHiredPhysicalPerson(data: CreateHiredPhysicalPersonProps): Promise<HiredPhysicalPerson>
   abstract updateHiredPhysicalPerson(data: UpdateHiredPhysicalPersonProps, id: string): Promise<HiredPhysicalPerson>
   abstract deleteHiredPhysicalPerson(id: string): Promise<void>
