@@ -10,9 +10,8 @@ export class UpdateHiredLegalPersonUseCase {
   async handle(id: string, data: UpdateHiredLegalPersonProps) {
     try {
       const HiredLegalPerson = await this.hiredLegalPersonRepository.findHiredLegalPersonById(id)
-      console.log(data);
       if (!HiredLegalPerson) {
-        return this.exceptionService.badRequestException({ message: "Bidding Process not found", code_error: 404 })
+        return this.exceptionService.badRequestException({ message: "Hired Legal Person not found", code_error: 404 })
       }
 
       return await this.hiredLegalPersonRepository.updateHiredLegalPerson(data, id)

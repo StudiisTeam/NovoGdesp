@@ -8,8 +8,8 @@ export class DeleteHiredLegalPersonUseCase {
   ) { }
   async handle(id: string) {
     try {
-      const biddingProcess = await this.hiredLegalPersonRepository.findHiredLegalPersonById(id)
-      if (!biddingProcess) {
+      const hiredLegalPerson = await this.hiredLegalPersonRepository.findHiredLegalPersonById(id)
+      if (!hiredLegalPerson) {
         return this.exceptionService.badRequestException({
           message: "Bidding Process not found",
           code_error: 404
