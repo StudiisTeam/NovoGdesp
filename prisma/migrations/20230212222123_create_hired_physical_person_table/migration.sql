@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE "HiredPhysicalPerson" (
     "id" TEXT NOT NULL,
-    "aname" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
     "cpf" TEXT NOT NULL,
     "address" TEXT,
     "phone" TEXT,
@@ -19,7 +19,7 @@ CREATE TABLE "HiredPhysicalPerson" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "HiredPhysicalPerson_aname_key" ON "HiredPhysicalPerson"("aname");
+CREATE UNIQUE INDEX "HiredPhysicalPerson_name_key" ON "HiredPhysicalPerson"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "HiredPhysicalPerson_cpf_key" ON "HiredPhysicalPerson"("cpf");

@@ -72,7 +72,7 @@ model HiredLegalPerson {
 
 model HiredPhysicalPerson {
   id          String   @id @default(uuid())
-  aname       String   @unique
+  name        String   @unique
   cpf         String   @unique
   address     String?
   phone       String?
