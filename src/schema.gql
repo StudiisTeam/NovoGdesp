@@ -100,6 +100,21 @@ type HiredLegalPerson {
   accountBank: String!
 }
 
+type HiredPhysicalPerson {
+  id: String!
+  name: String!
+  cpf: String!
+  phone: String!
+  email: String!
+  address: String!
+  color: String!
+  acronym: String!
+  nameBank: String!
+  agencyBank: String!
+  codeBank: String!
+  accountBank: String!
+}
+
 type Modality {
   id: Int!
 
@@ -112,6 +127,7 @@ type Query {
   modality: [Modality!]!
   biddingProcess: [BiddingProcess!]!
   hiredLegalPerson: [HiredLegalPerson!]!
+  hiredPhysicalPerson: [HiredPhysicalPerson!]!
 }
 
 type Mutation {
@@ -127,6 +143,9 @@ type Mutation {
   createHiredLegalPerson(data: CreateHiredLegalPersonInput!): HiredLegalPerson!
   updateHiredLegalPerson(data: UpdateHiredLegalPersonInput!): HiredLegalPerson!
   deleteHiredLegalPerson(id: String!): String!
+  createHiredPhysicalPerson(data: CreateHiredPhysicalPersonInput!): HiredPhysicalPerson!
+  updateHiredPhysicalPerson(data: UpdateHiredPhysicalPersonInput!): HiredPhysicalPerson!
+  deleteHiredPhysicalPerson(id: String!): String!
 }
 
 input CreateDepartmentInput {
@@ -216,6 +235,37 @@ input CreateHiredLegalPersonInput {
 input UpdateHiredLegalPersonInput {
   corporateName: String
   cnpj: String
+  phone: String
+  email: String
+  address: String
+  color: String
+  acronym: String
+  nameBank: String
+  agencyBank: Int
+  codeBank: Int
+  accountBank: String
+
+  """Example field (placeholder)"""
+  id: String!
+}
+
+input CreateHiredPhysicalPersonInput {
+  name: String!
+  cpf: String!
+  phone: String!
+  email: String!
+  address: String!
+  color: String!
+  acronym: String!
+  nameBank: String!
+  agencyBank: Int!
+  codeBank: Int!
+  accountBank: String!
+}
+
+input UpdateHiredPhysicalPersonInput {
+  name: String
+  cpf: String
   phone: String
   email: String
   address: String
