@@ -5,6 +5,6 @@ export class Modality {
   @Field(() => Int)
   id: number
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   name: string;
 }

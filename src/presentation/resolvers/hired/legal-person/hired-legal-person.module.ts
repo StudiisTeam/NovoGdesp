@@ -1,12 +1,9 @@
 
 import { Module } from '@nestjs/common';
-import { CreateHiredLegalPersonUsecase } from 'src/application/use-cases/hired-legal-person/create-hired-legal-person.usecase';
-import { DeleteHiredLegalPersonUseCase } from 'src/application/use-cases/hired-legal-person/delete-hired-legal-person.usecase';
-import { ListHiredLegalPersonUsecase } from 'src/application/use-cases/hired-legal-person/list-hired-legal-person.usecase';
-import { UpdateHiredLegalPersonUseCase } from 'src/application/use-cases/hired-legal-person/update-hired-legal-person.usecase';
+import { CreateHiredLegalPersonUsecase, DeleteHiredLegalPersonUseCase, ListHiredLegalPersonUsecase, UpdateHiredLegalPersonUseCase } from 'src/application/use-cases/hired/legal-person';
 import { ExcetionsServiceInterface } from 'src/domain/interfaces/exception.interface';
 import { HiredLegalPersonRepositoryInterface } from 'src/domain/interfaces/hired-legal-person.interface';
-import { HiredLegalPersonRepository } from 'src/infra/repositories/hired-legal-person/hired-legal-person.repository';
+import { HiredLegalPersonRepository } from 'src/infra/repositories/hired/legal-person/hired-legal-person.repository';
 import { RepositoriesModule } from 'src/infra/repositories/repositories.module';
 import { ExceptionsService } from 'src/presentation/helpers/exceptions.service';
 import { HiredLegalPersonResolver } from './hired-legal-person.resolver';

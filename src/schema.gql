@@ -23,34 +23,15 @@ directive @inaccessible on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUM
 directive @override(from: String!) on FIELD_DEFINITION
 
 type BiddingProcess {
-  """Id field (placeholder)"""
   id: String!
-
-  """Process Identifier field (placeholder)"""
   processIdentifier: String!
-
-  """process Number field (placeholder)"""
   processNumber: String!
-
-  """process Year field (placeholder)"""
   processYear: Int!
-
-  """Example field (placeholder)"""
   modalityId: Int!
-
-  """Example field (placeholder)"""
   callingInstrument: String!
-
-  """Example field (placeholder)"""
   object: String!
-
-  """Example field (placeholder)"""
   executionRegime: String!
-
-  """Example field (placeholder)"""
   guarantee: Boolean!
-
-  """Example field (placeholder)"""
   agreement: Boolean!
 }
 
@@ -63,40 +44,17 @@ type Department {
 }
 
 type HiredLegalPerson {
-  """Example field (placeholder)"""
   id: String!
-
-  """Example field (placeholder)"""
   corporateName: String!
-
-  """Example field (placeholder)"""
   cnpj: String!
-
-  """Example field (placeholder)"""
   phone: String!
-
-  """Example field (placeholder)"""
   email: String!
-
-  """Example field (placeholder)"""
   address: String!
-
-  """Example field (placeholder)"""
   color: String!
-
-  """Example field (placeholder)"""
   acronym: String!
-
-  """Example field (placeholder)"""
   nameBank: String!
-
-  """Example field (placeholder)"""
   agencyBank: String!
-
-  """Example field (placeholder)"""
   codeBank: String!
-
-  """Example field (placeholder)"""
   accountBank: String!
 }
 
@@ -117,8 +75,6 @@ type HiredPhysicalPerson {
 
 type Modality {
   id: Int!
-
-  """Example field (placeholder)"""
   name: String!
 }
 
@@ -138,7 +94,7 @@ type Mutation {
   updateModality(data: UpdateModalityInput!): Modality!
   deleteModality(id: Int!): String!
   createBiddingProcess(data: CreateBiddingProcessInput!): BiddingProcess!
-  updateBiddingProcess(data: UpdateBiddingProcessInput!, id: String!): BiddingProcess!
+  updateBiddingProcess(data: UpdateBiddingProcessInput!): BiddingProcess!
   deleteBiddingProcess(id: String!): String!
   createHiredLegalPerson(data: CreateHiredLegalPersonInput!): HiredLegalPerson!
   updateHiredLegalPerson(data: UpdateHiredLegalPersonInput!): HiredLegalPerson!
@@ -164,7 +120,6 @@ input UpdateDepartmentInput {
 }
 
 input CreateModalityInput {
-  """Example field (placeholder)"""
   name: String!
 }
 
@@ -174,34 +129,15 @@ input UpdateModalityInput {
 }
 
 input CreateBiddingProcessInput {
-  """Example field (placeholder)"""
   processIdentifier: String!
-
-  """Example field (placeholder)"""
   processNumber: String!
-
-  """Example field (placeholder)"""
   processYear: Int!
-
-  """Example field (placeholder)"""
   modalityId: Int!
-
-  """Example field (placeholder)"""
   departmentId: String!
-
-  """Example field (placeholder)"""
   callingInstrument: String!
-
-  """Example field (placeholder)"""
   object: String!
-
-  """Example field (placeholder)"""
   executionRegime: String!
-
-  """Example field (placeholder)"""
   guarantee: Boolean!
-
-  """Example field (placeholder)"""
   agreement: Boolean!
 }
 
@@ -216,6 +152,7 @@ input UpdateBiddingProcessInput {
   executionRegime: String
   guarantee: Boolean
   agreement: Boolean
+  id: String!
 }
 
 input CreateHiredLegalPersonInput {

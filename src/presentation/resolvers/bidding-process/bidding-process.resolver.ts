@@ -43,9 +43,8 @@ export class BiddingProcessResolver {
   @SetMetadata('permissions', ['update:biddingProcess'])
   async updateBiddingProcess(
     @Args('data') data: UpdateBiddingProcessInput,
-    @Args('id') id: string
   ) {
-    return await this.updateBiddingProcessUseCase.handle(id, data);
+    return await this.updateBiddingProcessUseCase.handle(data.id, data);
   }
 
   @Mutation(() => String)

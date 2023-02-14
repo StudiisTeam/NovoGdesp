@@ -8,9 +8,9 @@ import {
   DeleteHiredPhysicalPersonUseCase,
   ListHiredPhysicalPersonUsecase,
   UpdateHiredPhysicalPersonUseCase
-} from 'src/application/use-cases/hired-physical-person';
-import { CreateHiredPhysicalPersonInput } from 'src/infra/http/graphql/inputs/hired-physical-person/create-hired-physical-person.input';
-import { UpdateHiredPhysicalPersonInput } from 'src/infra/http/graphql/inputs/hired-physical-person/update-hired-physical-person.input';
+} from 'src/application/use-cases/hired/physical-person';
+import { CreateHiredPhysicalPersonInput } from 'src/infra/http/graphql/inputs/hired/physical-person/create-hired-physical-person.input';
+import { UpdateHiredPhysicalPersonInput } from 'src/infra/http/graphql/inputs/hired/physical-person/update-hired-physical-person.input';
 
 
 @Resolver()

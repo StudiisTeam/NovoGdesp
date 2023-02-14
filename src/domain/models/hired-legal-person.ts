@@ -2,39 +2,39 @@ import { ObjectType, Field, Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class HiredLegalPerson {
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   id: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   corporateName: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   cnpj: number;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   phone: number;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   email: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   address: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   color: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   acronym: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   nameBank: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   agencyBank: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   codeBank: string;
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   accountBank: string;
 }

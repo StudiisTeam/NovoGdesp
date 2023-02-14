@@ -3,8 +3,8 @@ import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 
 @InputType()
 export class UpdateBiddingProcessInput extends PartialType(CreateBiddingProcessInput) {
-  // @Field(() => String)
-  // id: string;
+  @Field(() => String)
+  id: string;
 
   @Field()
   processIdentifier?: string

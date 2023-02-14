@@ -1,35 +1,34 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Modality } from './modality';
 
 @ObjectType()
 export class BiddingProcess {
-  @Field(() => String, { description: 'Id field (placeholder)' })
+  @Field(() => String)
   id: string;
 
-  @Field(() => String, { description: 'Process Identifier field (placeholder)' })
+  @Field(() => String)
   processIdentifier: string
 
-  @Field(() => String, { description: 'process Number field (placeholder)' })
+  @Field(() => String)
   processNumber: string
 
-  @Field(() => Int, { description: 'process Year field (placeholder)' })
+  @Field(() => Int)
   processYear: number
 
-  @Field(() => Int, { description: 'Example field (placeholder)' })
+  @Field(() => Int)
   modalityId: number
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   callingInstrument: string
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   object: string
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   executionRegime: string
 
-  @Field(() => Boolean, { description: 'Example field (placeholder)' })
+  @Field(() => Boolean)
   guarantee: boolean
 
-  @Field(() => Boolean, { description: 'Example field (placeholder)' })
+  @Field(() => Boolean)
   agreement: boolean
 }

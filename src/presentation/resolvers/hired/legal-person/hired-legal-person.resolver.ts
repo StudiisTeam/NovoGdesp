@@ -1,8 +1,7 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { SetMetadata, UseGuards } from '@nestjs/common';
 import { HiredLegalPerson } from 'src/domain/models/hired-legal-person';
-import { UpdateHiredLegalPersonInput } from 'src/infra/http/graphql/inputs/hired-legal-person/update-hired-legal-Person.input';
-import { CreateHiredLegalPersonInput } from 'src/infra/http/graphql/inputs/hired-legal-person/create-hired-legal-Person.input';
+import { UpdateHiredLegalPersonInput } from 'src/infra/http/graphql/inputs/hired/legal-person/update-hired-legal-Person.input';
 import { AuthorizationGuard } from 'src/infra/http/auth/authorization.guard';
 import { PermissionsGuard } from 'src/infra/http/auth/permissions.guard';
 import {
@@ -10,7 +9,8 @@ import {
   DeleteHiredLegalPersonUseCase,
   ListHiredLegalPersonUsecase,
   UpdateHiredLegalPersonUseCase
-} from "src/application/use-cases/hired-legal-person/index"
+} from "src/application/use-cases/hired/legal-person/index"
+import { CreateHiredLegalPersonInput } from 'src/infra/http/graphql/inputs/hired/legal-person/create-hired-legal-Person.input';
 
 @Resolver()
 export class HiredLegalPersonResolver {
