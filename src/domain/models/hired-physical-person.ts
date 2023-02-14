@@ -1,15 +1,15 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 
 @ObjectType()
-export class HiredLegalPerson {
+export class HiredPhysicalPerson {
   @Field(() => String)
   id: string;
 
   @Field(() => String)
-  corporateName: string;
+  name: string;
 
   @Field(() => String)
-  cnpj: number;
+  cpf: number;
 
   @Field(() => String)
   phone: number;

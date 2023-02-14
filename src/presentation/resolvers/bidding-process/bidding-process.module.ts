@@ -1,9 +1,6 @@
 import { Module } from '@nestjs/common';
-import { CreateBiddingProcessUsecase } from 'src/application/use-cases/bidding-process/create-bidding-process.usecase';
-import { DeleteBiddingProcessUseCase } from 'src/application/use-cases/bidding-process/delete-bidding-process.usecase';
-import { ListBiddingProcessUsecase } from 'src/application/use-cases/bidding-process/list-bidding-process.usecase';
-import { UpdateBiddingProcessUseCase } from 'src/application/use-cases/bidding-process/update-bidding-process.usecase';
-import { BiddingProcessRepositoryInterface } from 'src/domain/interfaces/bidding-process';
+import { CreateBiddingProcessUsecase, DeleteBiddingProcessUseCase, ListBiddingProcessUsecase, UpdateBiddingProcessUseCase } from 'src/application/use-cases/bidding-process';
+import { BiddingProcessRepositoryInterface } from 'src/domain/interfaces/bidding-process.interface';
 import { ExcetionsServiceInterface } from 'src/domain/interfaces/exception.interface';
 import { BiddingProcessRepository } from 'src/infra/repositories/bidding-process/bidding-process.repository';
 import { RepositoriesModule } from 'src/infra/repositories/repositories.module';

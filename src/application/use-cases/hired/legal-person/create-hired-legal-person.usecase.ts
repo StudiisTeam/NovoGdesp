@@ -1,5 +1,5 @@
 import { ExcetionsServiceInterface } from "src/domain/interfaces/exception.interface";
-import { HiredLegalPersonProps, HiredLegalPersonRepositoryInterface } from "src/domain/interfaces/hiredLegalPerson";
+import { CreateHiredLegalPersonProps, HiredLegalPersonRepositoryInterface } from "src/domain/interfaces/hired-legal-person.interface";
 
 export class CreateHiredLegalPersonUsecase {
   constructor(
@@ -7,7 +7,7 @@ export class CreateHiredLegalPersonUsecase {
     private exceptionService: ExcetionsServiceInterface
   ) { }
 
-  async handle(data: HiredLegalPersonProps) {
+  async handle(data: CreateHiredLegalPersonProps) {
     try {
       const existHiredLegalPerson = await this.hiredLegalPersonRepository.findHiredLegalPersonByCnpj(data.cnpj);
 

@@ -1,14 +1,16 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { Modality } from '../../../domain/models/modality';
-import { ListModalityUsecase } from 'src/application/use-cases/modality/list-modality.usecase';
-import { CreateModalityUseCase } from 'src/application/use-cases/modality/create-modality.usecase';
-import { UpdateModalityUseCase } from 'src/application/use-cases/modality/update-modality.usecase';
-import { DeleteModalityUseCase } from 'src/application/use-cases/modality/delete-modality.usecase';
 import { CreateModalityInput } from 'src/infra/http/graphql/inputs/modality/create-modality.input';
 import { UpdateModalityInput } from 'src/infra/http/graphql/inputs/modality/update-modality.input';
 import { PermissionsGuard } from 'src/infra/http/auth/permissions.guard';
 import { AuthorizationGuard } from 'src/infra/http/auth/authorization.guard';
 import { SetMetadata, UseGuards } from '@nestjs/common';
+import {
+  ListModalityUsecase,
+  CreateModalityUseCase,
+  DeleteModalityUseCase,
+  UpdateModalityUseCase
+} from 'src/application/use-cases/modality/index';
 
 @Resolver(() => Modality)
 export class ModalityResolver {

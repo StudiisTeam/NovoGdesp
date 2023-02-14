@@ -2,33 +2,33 @@ import { InputType, Int, Field } from '@nestjs/graphql';
 
 @InputType()
 export class CreateBiddingProcessInput {
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   processIdentifier: string
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   processNumber: string
 
-  @Field(() => Int, { description: 'Example field (placeholder)' })
+  @Field(() => Int)
   processYear: number
 
-  @Field(() => Int, { description: 'Example field (placeholder)' })
+  @Field(() => Int)
   modalityId: number
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   departmentId: string
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   callingInstrument: string
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   object: string
 
-  @Field(() => String, { description: 'Example field (placeholder)' })
+  @Field(() => String)
   executionRegime: string
 
-  @Field(() => Boolean, { description: 'Example field (placeholder)' })
+  @Field(() => Boolean)
   guarantee: boolean
 
-  @Field(() => Boolean, { description: 'Example field (placeholder)' })
+  @Field(() => Boolean)
   agreement: boolean
 }

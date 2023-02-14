@@ -1,4 +1,3 @@
-import { Modality } from '../interfaces/modality.inteface'
 export interface BiddingProcessProps {
   processIdentifier?: string
   processNumber?: string

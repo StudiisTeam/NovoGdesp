@@ -1,4 +1,4 @@
-import { HiredLegalPersonRepositoryInterface } from "src/domain/interfaces/hiredLegalPerson";
+import { HiredLegalPersonRepositoryInterface } from "src/domain/interfaces/hired-legal-person.interface";
 
 export class ListHiredLegalPersonUsecase {
   constructor(private hiredLegalPersonRepository: HiredLegalPersonRepositoryInterface) { }

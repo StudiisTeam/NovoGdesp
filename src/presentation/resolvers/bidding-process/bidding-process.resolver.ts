@@ -1,14 +1,16 @@
 import { SetMetadata, UseGuards } from '@nestjs/common';
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { CreateBiddingProcessUsecase } from 'src/application/use-cases/bidding-process/create-bidding-process.usecase';
-import { DeleteBiddingProcessUseCase } from 'src/application/use-cases/bidding-process/delete-bidding-process.usecase';
-import { ListBiddingProcessUsecase } from 'src/application/use-cases/bidding-process/list-bidding-process.usecase';
-import { UpdateBiddingProcessUseCase } from 'src/application/use-cases/bidding-process/update-bidding-process.usecase';
 import { BiddingProcess } from 'src/domain/models/bidding-process';
 import { AuthorizationGuard } from 'src/infra/http/auth/authorization.guard';
 import { PermissionsGuard } from 'src/infra/http/auth/permissions.guard';
 import { CreateBiddingProcessInput } from 'src/infra/http/graphql/inputs/bidding-process/create-bidding-process.input';
 import { UpdateBiddingProcessInput } from 'src/infra/http/graphql/inputs/bidding-process/update-bidding-process.input';
+import {
+  ListBiddingProcessUsecase,
+  CreateBiddingProcessUsecase,
+  DeleteBiddingProcessUseCase,
+  UpdateBiddingProcessUseCase
+} from 'src/application/use-cases/bidding-process/index';
 
 
 @Resolver()
@@ -41,9 +43,8 @@ export class BiddingProcessResolver {
   @SetMetadata('permissions', ['update:biddingProcess'])
   async updateBiddingProcess(
     @Args('data') data: UpdateBiddingProcessInput,
-    @Args('id') id: string
   ) {
-    return await this.updateBiddingProcessUseCase.handle(id, data);
+    return await this.updateBiddingProcessUseCase.handle(data.id, data);
   }
 
   @Mutation(() => String)

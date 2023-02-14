@@ -1,4 +1,4 @@
-export interface HiredLegalPersonProps {
+export interface CreateHiredLegalPersonProps {
   corporateName: string;
   cnpj: string;
   phone: string;
@@ -10,6 +10,20 @@ export interface HiredLegalPersonProps {
   accountBank: string;
   acronym: string;
   color: string;
+}
+
+export interface UpdateHiredLegalPersonProps {
+  corporateName?: string;
+  cnpj?: string;
+  phone?: string;
+  email?: string;
+  address?: string;
+  nameBank?: string;
+  agencyBank?: number;
+  codeBank?: number;
+  accountBank?: string;
+  acronym?: string;
+  color?: string;
 }
 
 export type HiredLegalPerson = {
@@ -30,8 +44,8 @@ export type HiredLegalPerson = {
 export abstract class HiredLegalPersonRepositoryInterface {
   abstract listHiredLegalPerson(): Promise<HiredLegalPerson[]>
   abstract findHiredLegalPersonById(id: string): Promise<HiredLegalPerson>
-  abstract findHiredLegalPersonByCnpj(name: string): Promise<HiredLegalPerson>
-  abstract createHiredLegalPerson(data: HiredLegalPersonProps): Promise<HiredLegalPerson>
-  abstract updateHiredLegalPerson(data: HiredLegalPersonProps, id: string): Promise<HiredLegalPerson>
+  abstract findHiredLegalPersonByCnpj(cnpj: string): Promise<HiredLegalPerson>
+  abstract createHiredLegalPerson(data: CreateHiredLegalPersonProps): Promise<HiredLegalPerson>
+  abstract updateHiredLegalPerson(data: UpdateHiredLegalPersonProps, id: string): Promise<HiredLegalPerson>
   abstract deleteHiredLegalPerson(id: string): Promise<void>
 }

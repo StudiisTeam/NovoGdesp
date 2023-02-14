@@ -1,14 +1,11 @@
 import { Module } from '@nestjs/common';
 import { DepartmentRepositoryInterface } from 'src/domain/interfaces/deparment.interface';
 import { ExcetionsServiceInterface } from 'src/domain/interfaces/exception.interface';
-import { CreateDepartmentUsecase } from 'src/application/use-cases/department/create-department.usecase';
-import { DeleteDepartmentUseCase } from 'src/application/use-cases/department/delete-department.usecase';
-import { ListDepartmentUsecase } from 'src/application/use-cases/department/list-departments.usecase';
-import { UpdateDepartmentUseCase } from 'src/application/use-cases/department/update-department.usecase';
 import { ExceptionsService } from 'src/presentation/helpers/exceptions.service';
 import { DepartmentRepository } from 'src/infra/repositories/department/department.repository';
 import { RepositoriesModule } from 'src/infra/repositories/repositories.module';
 import { DepartmentResolver } from './department.resolver';
+import { CreateDepartmentUsecase, DeleteDepartmentUseCase, ListDepartmentUsecase, UpdateDepartmentUseCase } from 'src/application/use-cases/department';
 
 @Module({
   imports: [

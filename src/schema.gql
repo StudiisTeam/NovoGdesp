@@ -23,34 +23,15 @@ directive @inaccessible on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUM
 directive @override(from: String!) on FIELD_DEFINITION
 
 type BiddingProcess {
-  """Id field (placeholder)"""
   id: String!
-
-  """Process Identifier field (placeholder)"""
   processIdentifier: String!
-
-  """process Number field (placeholder)"""
   processNumber: String!
-
-  """process Year field (placeholder)"""
   processYear: Int!
-
-  """Example field (placeholder)"""
   modalityId: Int!
-
-  """Example field (placeholder)"""
   callingInstrument: String!
-
-  """Example field (placeholder)"""
   object: String!
-
-  """Example field (placeholder)"""
   executionRegime: String!
-
-  """Example field (placeholder)"""
   guarantee: Boolean!
-
-  """Example field (placeholder)"""
   agreement: Boolean!
 }
 
@@ -63,55 +44,46 @@ type Department {
 }
 
 type HiredLegalPerson {
-  """Example field (placeholder)"""
   id: String!
-
-  """Example field (placeholder)"""
   corporateName: String!
-
-  """Example field (placeholder)"""
   cnpj: String!
-
-  """Example field (placeholder)"""
   phone: String!
-
-  """Example field (placeholder)"""
   email: String!
-
-  """Example field (placeholder)"""
   address: String!
-
-  """Example field (placeholder)"""
   color: String!
-
-  """Example field (placeholder)"""
   acronym: String!
-
-  """Example field (placeholder)"""
   nameBank: String!
-
-  """Example field (placeholder)"""
   agencyBank: String!
-
-  """Example field (placeholder)"""
   codeBank: String!
+  accountBank: String!
+}
 
-  """Example field (placeholder)"""
+type HiredPhysicalPerson {
+  id: String!
+  name: String!
+  cpf: String!
+  phone: String!
+  email: String!
+  address: String!
+  color: String!
+  acronym: String!
+  nameBank: String!
+  agencyBank: String!
+  codeBank: String!
   accountBank: String!
 }
 
 type Modality {
   id: Int!
-
-  """Example field (placeholder)"""
   name: String!
 }
 
 type Query {
-  departments: [Department!]!
+  department: [Department!]!
   modality: [Modality!]!
   biddingProcess: [BiddingProcess!]!
   hiredLegalPerson: [HiredLegalPerson!]!
+  hiredPhysicalPerson: [HiredPhysicalPerson!]!
 }
 
 type Mutation {
@@ -122,11 +94,14 @@ type Mutation {
   updateModality(data: UpdateModalityInput!): Modality!
   deleteModality(id: Int!): String!
   createBiddingProcess(data: CreateBiddingProcessInput!): BiddingProcess!
-  updateBiddingProcess(data: UpdateBiddingProcessInput!, id: String!): BiddingProcess!
+  updateBiddingProcess(data: UpdateBiddingProcessInput!): BiddingProcess!
   deleteBiddingProcess(id: String!): String!
   createHiredLegalPerson(data: CreateHiredLegalPersonInput!): HiredLegalPerson!
   updateHiredLegalPerson(data: UpdateHiredLegalPersonInput!): HiredLegalPerson!
-  removeHiredLegalPerson(id: String!): HiredLegalPerson!
+  deleteHiredLegalPerson(id: String!): String!
+  createHiredPhysicalPerson(data: CreateHiredPhysicalPersonInput!): HiredPhysicalPerson!
+  updateHiredPhysicalPerson(data: UpdateHiredPhysicalPersonInput!): HiredPhysicalPerson!
+  deleteHiredPhysicalPerson(id: String!): String!
 }
 
 input CreateDepartmentInput {
@@ -145,7 +120,6 @@ input UpdateDepartmentInput {
 }
 
 input CreateModalityInput {
-  """Example field (placeholder)"""
   name: String!
 }
 
@@ -155,34 +129,15 @@ input UpdateModalityInput {
 }
 
 input CreateBiddingProcessInput {
-  """Example field (placeholder)"""
   processIdentifier: String!
-
-  """Example field (placeholder)"""
   processNumber: String!
-
-  """Example field (placeholder)"""
   processYear: Int!
-
-  """Example field (placeholder)"""
   modalityId: Int!
-
-  """Example field (placeholder)"""
   departmentId: String!
-
-  """Example field (placeholder)"""
   callingInstrument: String!
-
-  """Example field (placeholder)"""
   object: String!
-
-  """Example field (placeholder)"""
   executionRegime: String!
-
-  """Example field (placeholder)"""
   guarantee: Boolean!
-
-  """Example field (placeholder)"""
   agreement: Boolean!
 }
 
@@ -197,76 +152,66 @@ input UpdateBiddingProcessInput {
   executionRegime: String
   guarantee: Boolean
   agreement: Boolean
+  id: String!
 }
 
 input CreateHiredLegalPersonInput {
-  """Example field (placeholder)"""
   corporateName: String!
-
-  """Example field (placeholder)"""
   cnpj: String!
-
-  """Example field (placeholder)"""
   phone: String!
-
-  """Example field (placeholder)"""
   email: String!
-
-  """Example field (placeholder)"""
   address: String!
-
-  """Example field (placeholder)"""
   color: String!
-
-  """Example field (placeholder)"""
   acronym: String!
-
-  """Example field (placeholder)"""
   nameBank: String!
-
-  """Example field (placeholder)"""
   agencyBank: Int!
-
-  """Example field (placeholder)"""
   codeBank: Int!
-
-  """Example field (placeholder)"""
   accountBank: String!
 }
 
 input UpdateHiredLegalPersonInput {
-  """Example field (placeholder)"""
-  corporateName: String!
+  corporateName: String
+  cnpj: String
+  phone: String
+  email: String
+  address: String
+  color: String
+  acronym: String
+  nameBank: String
+  agencyBank: Int
+  codeBank: Int
+  accountBank: String
 
   """Example field (placeholder)"""
-  cnpj: String!
+  id: String!
+}
 
-  """Example field (placeholder)"""
+input CreateHiredPhysicalPersonInput {
+  name: String!
+  cpf: String!
   phone: String!
-
-  """Example field (placeholder)"""
   email: String!
-
-  """Example field (placeholder)"""
   address: String!
-
-  """Example field (placeholder)"""
   color: String!
-
-  """Example field (placeholder)"""
   acronym: String!
-
-  """Example field (placeholder)"""
   nameBank: String!
-
-  """Example field (placeholder)"""
   agencyBank: Int!
-
-  """Example field (placeholder)"""
   codeBank: Int!
-
-  """Example field (placeholder)"""
   accountBank: String!
+}
+
+input UpdateHiredPhysicalPersonInput {
+  name: String
+  cpf: String
+  phone: String
+  email: String
+  address: String
+  color: String
+  acronym: String
+  nameBank: String
+  agencyBank: Int
+  codeBank: Int
+  accountBank: String
 
   """Example field (placeholder)"""
   id: String!

@@ -1,18 +1,15 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { InputType, Int, Field } from '@nestjs/graphql';
 
-@ObjectType()
-export class HiredLegalPerson {
-  @Field(() => String)
-  id: string;
-
+@InputType()
+export class CreateHiredLegalPersonInput {
   @Field(() => String)
   corporateName: string;
 
   @Field(() => String)
-  cnpj: number;
+  cnpj: string;
 
   @Field(() => String)
-  phone: number;
+  phone: string;
 
   @Field(() => String)
   email: string;
@@ -29,11 +26,11 @@ export class HiredLegalPerson {
   @Field(() => String)
   nameBank: string;
 
-  @Field(() => String)
-  agencyBank: string;
+  @Field(() => Int)
+  agencyBank: number;
 
-  @Field(() => String)
-  codeBank: string;
+  @Field(() => Int)
+  codeBank: number;
 
   @Field(() => String)
   accountBank: string;
