@@ -18,6 +18,7 @@ model Department {
   color                         String
   createdAt                     DateTime                        @default(now())
   updatedAt                     DateTime                        @default(now()) @updatedAt
+  deletedAt                     DateTime?
   BiddingProcessesOnDepartments BiddingProcessesOnDepartments[]
   PriceRegistrationProtocol     PriceRegistrationProtocol[]
 }
@@ -25,6 +26,7 @@ model Department {
 model Modality {
   id             Int              @id @default(autoincrement())
   name           String
+  deletedAt      DateTime?
   BiddingProcess BiddingProcess[]
 }
 
@@ -42,6 +44,7 @@ model BiddingProcess {
   createdAt                     DateTime                        @default(now())
   updatedAt                     DateTime                        @default(now()) @updatedAt
   modality                      Modality                        @relation(fields: [modalityId], references: [id])
+  deletedAt                     DateTime?
   BiddingProcessesOnDepartments BiddingProcessesOnDepartments[]
   PriceRegistrationProtocol     PriceRegistrationProtocol[]
 }
@@ -70,6 +73,7 @@ model HiredLegalPerson {
   accountBank               String?
   createdAt                 DateTime                    @default(now())
   updatedAt                 DateTime                    @default(now()) @updatedAt
+  deletedAt                 DateTime?
   PriceRegistrationProtocol PriceRegistrationProtocol[]
 }
 
@@ -88,18 +92,22 @@ model HiredPhysicalPerson {
   accountBank               String?
   createdAt                 DateTime                    @default(now())
   updatedAt                 DateTime                    @default(now()) @updatedAt
+  deletedAt                 DateTime?
   PriceRegistrationProtocol PriceRegistrationProtocol[]
 }
 
 model PriceRegistrationProtocol {
-  id                  String   @id @default(uuid())
-  protocolIdentifier  String   @unique
+  id                  String    @id @default(uuid())
+  protocolIdentifier  String    @unique
   protocolYear        Int
   signatureDate       DateTime
   initialDate         DateTime
   endDate             DateTime
   totalAmountProtocol Float
   contractPaymentTerm String
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @default(now()) @updatedAt
+  deletedAt           DateTime?
 
   biddingProcess        BiddingProcess       @relation(fields: [biddingProcessId], references: [id])
   biddingProcessId      String
