@@ -18,12 +18,15 @@ model Department {
   color                         String
   createdAt                     DateTime                        @default(now())
   updatedAt                     DateTime                        @default(now()) @updatedAt
+  deletedAt                     DateTime?
   BiddingProcessesOnDepartments BiddingProcessesOnDepartments[]
+  PriceRegistrationProtocol     PriceRegistrationProtocol[]
 }
 
 model Modality {
   id             Int              @id @default(autoincrement())
   name           String
+  deletedAt      DateTime?
   BiddingProcess BiddingProcess[]
 }
 
@@ -41,7 +44,9 @@ model BiddingProcess {
   createdAt                     DateTime                        @default(now())
   updatedAt                     DateTime                        @default(now()) @updatedAt
   modality                      Modality                        @relation(fields: [modalityId], references: [id])
+  deletedAt                     DateTime?
   BiddingProcessesOnDepartments BiddingProcessesOnDepartments[]
+  PriceRegistrationProtocol     PriceRegistrationProtocol[]
 }
 
 model BiddingProcessesOnDepartments {
@@ -54,35 +59,62 @@ model BiddingProcessesOnDepartments {
 }
 
 model HiredLegalPerson {
-  id            String   @id @default(uuid())
-  corporateName String   @unique
-  cnpj          String   @unique
-  address       String?
-  phone         String?
-  email         String?
-  color         String
-  acronym       String
-  codeBank      Int?
-  nameBank      String?
-  agencyBank    Int?
-  accountBank   String?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @default(now()) @updatedAt
+  id                        String                      @id @default(uuid())
+  corporateName             String                      @unique
+  cnpj                      String                      @unique
+  address                   String?
+  phone                     String?
+  email                     String?
+  color                     String
+  acronym                   String
+  codeBank                  Int?
+  nameBank                  String?
+  agencyBank                Int?
+  accountBank               String?
+  createdAt                 DateTime                    @default(now())
+  updatedAt                 DateTime                    @default(now()) @updatedAt
+  deletedAt                 DateTime?
+  PriceRegistrationProtocol PriceRegistrationProtocol[]
 }
 
 model HiredPhysicalPerson {
-  id          String   @id @default(uuid())
-  name        String   @unique
-  cpf         String   @unique
-  address     String?
-  phone       String?
-  email       String?
-  color       String
-  acronym     String
-  codeBank    Int?
-  nameBank    String?
-  agencyBank  Int?
-  accountBank String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @default(now()) @updatedAt
+  id                        String                      @id @default(uuid())
+  name                      String                      @unique
+  cpf                       String                      @unique
+  address                   String?
+  phone                     String?
+  email                     String?
+  color                     String
+  acronym                   String
+  codeBank                  Int?
+  nameBank                  String?
+  agencyBank                Int?
+  accountBank               String?
+  createdAt                 DateTime                    @default(now())
+  updatedAt                 DateTime                    @default(now()) @updatedAt
+  deletedAt                 DateTime?
+  PriceRegistrationProtocol PriceRegistrationProtocol[]
+}
+
+model PriceRegistrationProtocol {
+  id                  String    @id @default(uuid())
+  protocolIdentifier  String    @unique
+  protocolYear        Int
+  signatureDate       DateTime
+  initialDate         DateTime
+  endDate             DateTime
+  totalAmountProtocol Float
+  contractPaymentTerm String
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @default(now()) @updatedAt
+  deletedAt           DateTime?
+
+  biddingProcess        BiddingProcess       @relation(fields: [biddingProcessId], references: [id])
+  biddingProcessId      String
+  hiredPhyscalPerson    HiredPhysicalPerson? @relation(fields: [hiredPhysicalPersonId], references: [id])
+  hiredPhysicalPersonId String?
+  hiredLegalPerson      HiredLegalPerson?    @relation(fields: [hiredLegalPersonId], references: [id])
+  hiredLegalPersonId    String?
+  deparment             Department           @relation(fields: [departmentId], references: [id])
+  departmentId          String
 }
