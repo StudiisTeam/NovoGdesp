@@ -1,7 +1,7 @@
 import { Field, InputType } from "@nestjs/graphql";
 
 @InputType()
-export class CreatePriceRegistrationProtocol {
+export class CreatePriceRegistrationProtocolInput {
   @Field(() => String)
   protocolIdentifier: string
   

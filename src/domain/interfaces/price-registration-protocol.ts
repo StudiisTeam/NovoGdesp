@@ -1,3 +1,4 @@
+
 export interface UpdatePriceRegistrationProtocolProps {
   protocolIdentifier: string
   protocolYear: number
@@ -6,7 +7,7 @@ export interface UpdatePriceRegistrationProtocolProps {
   endDate: Date
   totalAmountProtocol: number
   contractPaymentTerm: string
-  status: string
+  status: any
   biddingProcessId: string
   hiredPhysicalPersonId?: string
   hiredLegalPersonId?: string

@@ -1,7 +1,10 @@
 import { Field, InputType } from "@nestjs/graphql";
 
 @InputType()
-export class UpdatePriceRegistrationProtocol {
+export class UpdatePriceRegistrationProtocolInput {
+  @Field(() => String)
+  id: string;
+
   @Field(() => String, { nullable: true })
   protocolIdentifier: string
   
@@ -22,6 +25,9 @@ export class UpdatePriceRegistrationProtocol {
 
   @Field(() => String, { nullable: true })
   contractPaymentTerm: string
+
+  @Field(() => String, { nullable: true })
+  status: string
 
   @Field(() => String, { nullable: true })
   biddingProcessId: string
