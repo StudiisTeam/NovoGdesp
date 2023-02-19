@@ -5,6 +5,7 @@ import { DepartmentRepository } from './department/department.repository';
 import { HiredLegalPersonRepository } from './hired/legal-person/hired-legal-person.repository';
 import { HiredPhysicalPersonRepository } from './hired/physical-person/hired-physical-person.repository';
 import { ModalityRepository } from './modality/modality.repository';
+import { PriceRegistrationProtocolRepository } from './price-registration-protocol/price-registration-protocol.repository';
 
 @Module({
   imports: [DatabaseModule],
@@ -13,7 +14,8 @@ import { ModalityRepository } from './modality/modality.repository';
     ModalityRepository,
     BiddingProcessRepository,
     HiredLegalPersonRepository,
-    HiredPhysicalPersonRepository
+    HiredPhysicalPersonRepository,
+    PriceRegistrationProtocolRepository
   ],
   exports: [
     DepartmentRepository,
@@ -21,6 +23,7 @@ import { ModalityRepository } from './modality/modality.repository';
     BiddingProcessRepository,
     HiredLegalPersonRepository,
     HiredPhysicalPersonRepository,
+    PriceRegistrationProtocolRepository
   ]
 })
 export class RepositoriesModule { }
