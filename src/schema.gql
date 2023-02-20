@@ -78,12 +78,42 @@ type Modality {
   name: String!
 }
 
+type PriceRegistrationProtocol {
+  id: ID!
+  protocolIdentifier: String!
+  protocolYear: Float!
+  signatureDate: DateTime!
+  initialDate: DateTime!
+  endDate: DateTime!
+  totalAmountProtocol: Float!
+  contractPaymentTerm: String!
+  status: PriceRegistrationProtocolStatus!
+  deletedAt: DateTime!
+  biddingProcess: BiddingProcess!
+  hiredPhyscalPerson: HiredPhysicalPerson!
+  hiredLegalPerson: HiredLegalPerson!
+  deparment: Department!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""Available price registration protocolStatus statuses"""
+enum PriceRegistrationProtocolStatus {
+  INUSE
+  UNUSED
+  CANCELED
+}
+
 type Query {
   department: [Department!]!
   modality: [Modality!]!
   biddingProcess: [BiddingProcess!]!
   hiredLegalPerson: [HiredLegalPerson!]!
   hiredPhysicalPerson: [HiredPhysicalPerson!]!
+  priceRegistrationProtocol: [PriceRegistrationProtocol!]!
 }
 
 type Mutation {
@@ -102,6 +132,9 @@ type Mutation {
   createHiredPhysicalPerson(data: CreateHiredPhysicalPersonInput!): HiredPhysicalPerson!
   updateHiredPhysicalPerson(data: UpdateHiredPhysicalPersonInput!): HiredPhysicalPerson!
   deleteHiredPhysicalPerson(id: String!): String!
+  createPriceRegistrationProtocol(data: CreatePriceRegistrationProtocolInput!): PriceRegistrationProtocol!
+  updatePriceRegistrationProtocol(data: UpdatePriceRegistrationProtocolInput!): PriceRegistrationProtocol!
+  deletePriceRegistrationProtocol(id: String!): String!
 }
 
 input CreateDepartmentInput {
@@ -215,6 +248,36 @@ input UpdateHiredPhysicalPersonInput {
 
   """Example field (placeholder)"""
   id: String!
+}
+
+input CreatePriceRegistrationProtocolInput {
+  protocolIdentifier: String!
+  protocolYear: Float!
+  signatureDate: DateTime!
+  initialDate: DateTime!
+  endDate: DateTime!
+  totalAmountProtocol: Float!
+  contractPaymentTerm: String!
+  biddingProcessId: String!
+  hiredPhysicalPersonId: String
+  hiredLegalPersonId: String
+  departmentId: String!
+}
+
+input UpdatePriceRegistrationProtocolInput {
+  id: String!
+  protocolIdentifier: String
+  protocolYear: Float
+  signatureDate: DateTime
+  initialDate: DateTime
+  endDate: DateTime
+  totalAmountProtocol: Float
+  contractPaymentTerm: String
+  status: String
+  biddingProcessId: String
+  hiredPhysicalPersonId: String
+  hiredLegalPersonId: String
+  departmentId: String
 }
 
 scalar link__Import

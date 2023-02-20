@@ -96,17 +96,24 @@ model HiredPhysicalPerson {
   PriceRegistrationProtocol PriceRegistrationProtocol[]
 }
 
+enum PriceRegistrationProtocolStatus {
+  INUSE
+  UNUSED
+  CANCELED
+}
+
 model PriceRegistrationProtocol {
-  id                  String    @id @default(uuid())
-  protocolIdentifier  String    @unique
+  id                  String                          @id @default(uuid())
+  protocolIdentifier  String                          @unique
   protocolYear        Int
   signatureDate       DateTime
   initialDate         DateTime
   endDate             DateTime
   totalAmountProtocol Float
   contractPaymentTerm String
-  createdAt           DateTime  @default(now())
-  updatedAt           DateTime  @default(now()) @updatedAt
+  status              PriceRegistrationProtocolStatus @default(UNUSED)
+  createdAt           DateTime                        @default(now())
+  updatedAt           DateTime                        @default(now()) @updatedAt
   deletedAt           DateTime?
 
   biddingProcess        BiddingProcess       @relation(fields: [biddingProcessId], references: [id])
