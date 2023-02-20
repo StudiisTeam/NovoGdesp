@@ -1,5 +1,5 @@
 import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
-import { CreateHiredLegalPersonInput } from './create-hired-legal-Person.input';
+import { CreateHiredLegalPersonInput } from './create-hired-legal-person.input';
 
 @InputType()
 export class UpdateHiredLegalPersonInput extends PartialType(CreateHiredLegalPersonInput) {
