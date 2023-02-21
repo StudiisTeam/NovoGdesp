@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CreatePriceRegistrationProtocolUsecase, DeletePriceRegistrationProtocolUseCase, ListPriceRegistrationProtocolUsecase, UpdatePriceRegistrationProtocolUseCase } from 'src/application/use-cases/price-registration-protocol';
 import { ExcetionsServiceInterface } from 'src/domain/interfaces/exception.interface';
-import { PriceRegistrationProtocolRepositoryInterface } from 'src/domain/interfaces/price-registration-protocol';
+import { PriceRegistrationProtocolRepositoryInterface } from 'src/domain/interfaces/price-registration-protocol.interface';
 import { PriceRegistrationProtocolRepository } from 'src/infra/repositories/price-registration-protocol/price-registration-protocol.repository';
 import { RepositoriesModule } from 'src/infra/repositories/repositories.module';
 import { ExceptionsService } from 'src/presentation/helpers/exceptions.service';

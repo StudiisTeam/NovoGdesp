@@ -4,6 +4,7 @@ import { BiddingProcessRepository } from './bidding-process/bidding-process.repo
 import { DepartmentRepository } from './department/department.repository';
 import { HiredLegalPersonRepository } from './hired/legal-person/hired-legal-person.repository';
 import { HiredPhysicalPersonRepository } from './hired/physical-person/hired-physical-person.repository';
+import { PriceRegistrationProtocolItemRepository } from './item/price-registration-protocol-item/price-registration-protocol-item.repository';
 import { ModalityRepository } from './modality/modality.repository';
 import { PriceRegistrationProtocolRepository } from './price-registration-protocol/price-registration-protocol.repository';
 
@@ -15,7 +16,8 @@ import { PriceRegistrationProtocolRepository } from './price-registration-protoc
     BiddingProcessRepository,
     HiredLegalPersonRepository,
     HiredPhysicalPersonRepository,
-    PriceRegistrationProtocolRepository
+    PriceRegistrationProtocolRepository,
+    PriceRegistrationProtocolItemRepository
   ],
   exports: [
     DepartmentRepository,
@@ -23,7 +25,8 @@ import { PriceRegistrationProtocolRepository } from './price-registration-protoc
     BiddingProcessRepository,
     HiredLegalPersonRepository,
     HiredPhysicalPersonRepository,
-    PriceRegistrationProtocolRepository
+    PriceRegistrationProtocolRepository,
+    PriceRegistrationProtocolItemRepository
   ]
 })
 export class RepositoriesModule { }

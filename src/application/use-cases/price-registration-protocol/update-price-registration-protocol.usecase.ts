@@ -1,5 +1,5 @@
 import { ExcetionsServiceInterface } from "src/domain/interfaces/exception.interface";
-import { PriceRegistrationProtocolRepositoryInterface, UpdatePriceRegistrationProtocolProps } from "src/domain/interfaces/price-registration-protocol";
+import { PriceRegistrationProtocolRepositoryInterface, UpdatePriceRegistrationProtocolProps } from "src/domain/interfaces/price-registration-protocol.interface";
 
 export class UpdatePriceRegistrationProtocolUseCase {
   constructor(

@@ -23,29 +23,29 @@ export class HiredPhysicalPersonResolver {
   ) { }
 
   @Mutation(() => HiredPhysicalPerson)
-  // @UseGuards(AuthorizationGuard, PermissionsGuard)
-  // @SetMetadata('permissions', ['create:hiredPhysicalPerson'])
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['create:hiredPhysicalPerson'])
   createHiredPhysicalPerson(@Args('data') data: CreateHiredPhysicalPersonInput) {
     return this.createHiredPhysicalPersonUsecase.handle(data);
   }
 
   @Query(() => [HiredPhysicalPerson], { name: 'hiredPhysicalPerson' })
-  // @UseGuards(AuthorizationGuard, PermissionsGuard)
-  // @SetMetadata('permissions', ['read:hiredPhysicalPerson'])
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['read:hiredPhysicalPerson'])
   listHiredPhysicalPerson() {
     return this.listHiredPhysicalPersonUseCase.handle();
   }
 
   @Mutation(() => HiredPhysicalPerson)
-  // @UseGuards(AuthorizationGuard, PermissionsGuard)
-  // @SetMetadata('permissions', ['update:hiredPhysicalPerson'])
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['update:hiredPhysicalPerson'])
   updateHiredPhysicalPerson(@Args('data') data: UpdateHiredPhysicalPersonInput) {
     return this.updateHiredPhysicalPersonUseCase.handle(data.id, data);
   }
 
   @Mutation(() => String)
-  // @UseGuards(AuthorizationGuard, PermissionsGuard)
-  // @SetMetadata('permissions', ['delete:hiredPhysicalPerson'])
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['delete:hiredPhysicalPerson'])
   deleteHiredPhysicalPerson(@Args('id', { type: () => String }) id: string) {
     return this.deleteHiredPhysicalPersonUseCase.handle(id);
   }
