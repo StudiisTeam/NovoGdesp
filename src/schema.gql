@@ -73,38 +73,20 @@ type HiredPhysicalPerson {
   accountBank: String!
 }
 
+type PriceRegistrationProtocolItem {
+  id: ID!
+  specification: String!
+  observation: String!
+  brand: String!
+  unity: String!
+  amount: Float!
+  value: Float!
+  priceRegistrationProtocolId: String!
+}
+
 type Modality {
   id: Int!
   name: String!
-}
-
-type PriceRegistrationProtocol {
-  id: ID!
-  protocolIdentifier: String!
-  protocolYear: Float!
-  signatureDate: DateTime!
-  initialDate: DateTime!
-  endDate: DateTime!
-  totalAmountProtocol: Float!
-  contractPaymentTerm: String!
-  status: PriceRegistrationProtocolStatus!
-  deletedAt: DateTime!
-  biddingProcess: BiddingProcess!
-  hiredPhyscalPerson: HiredPhysicalPerson!
-  hiredLegalPerson: HiredLegalPerson!
-  deparment: Department!
-}
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
-"""Available price registration protocolStatus statuses"""
-enum PriceRegistrationProtocolStatus {
-  INUSE
-  UNUSED
-  CANCELED
 }
 
 type Query {
@@ -113,7 +95,7 @@ type Query {
   biddingProcess: [BiddingProcess!]!
   hiredLegalPerson: [HiredLegalPerson!]!
   hiredPhysicalPerson: [HiredPhysicalPerson!]!
-  priceRegistrationProtocol: [PriceRegistrationProtocol!]!
+  priceRegistrationProtocolItem: [PriceRegistrationProtocolItem!]!
 }
 
 type Mutation {
@@ -132,9 +114,12 @@ type Mutation {
   createHiredPhysicalPerson(data: CreateHiredPhysicalPersonInput!): HiredPhysicalPerson!
   updateHiredPhysicalPerson(data: UpdateHiredPhysicalPersonInput!): HiredPhysicalPerson!
   deleteHiredPhysicalPerson(id: String!): String!
-  createPriceRegistrationProtocol(data: CreatePriceRegistrationProtocolInput!): PriceRegistrationProtocol!
-  updatePriceRegistrationProtocol(data: UpdatePriceRegistrationProtocolInput!): PriceRegistrationProtocol!
+  createPriceRegistrationProtocol(data: CreatePriceRegistrationProtocolInput!): PriceRegistrationProtocolItem!
+  updatePriceRegistrationProtocol(data: UpdatePriceRegistrationProtocolInput!): PriceRegistrationProtocolItem!
   deletePriceRegistrationProtocol(id: String!): String!
+  createPriceRegistrationProtocolItem(data: CreatePriceRegistrationProtocolItemInput!): PriceRegistrationProtocolItem!
+  updatePriceRegistrationProtocolItem(data: UpdatePriceRegistrationProtocolItemInput!): PriceRegistrationProtocolItem!
+  deletePriceRegistrationProtocolItem(id: String!): String!
 }
 
 input CreateDepartmentInput {
@@ -264,6 +249,11 @@ input CreatePriceRegistrationProtocolInput {
   departmentId: String!
 }
 
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 input UpdatePriceRegistrationProtocolInput {
   id: String!
   protocolIdentifier: String
@@ -278,6 +268,27 @@ input UpdatePriceRegistrationProtocolInput {
   hiredPhysicalPersonId: String
   hiredLegalPersonId: String
   departmentId: String
+}
+
+input CreatePriceRegistrationProtocolItemInput {
+  specification: String!
+  observation: String!
+  brand: String!
+  unity: String!
+  amount: Int!
+  value: Float!
+  priceRegistrationProtocolId: String!
+}
+
+input UpdatePriceRegistrationProtocolItemInput {
+  id: ID!
+  specification: String!
+  observation: String!
+  brand: String!
+  unity: String!
+  amount: Int!
+  value: Float!
+  priceRegistrationProtocolId: String!
 }
 
 scalar link__Import

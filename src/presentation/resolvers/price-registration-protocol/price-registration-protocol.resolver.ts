@@ -1,6 +1,7 @@
 import { SetMetadata, UseGuards } from '@nestjs/common';
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { CreatePriceRegistrationProtocolUsecase, DeletePriceRegistrationProtocolUseCase, ListPriceRegistrationProtocolUsecase, UpdatePriceRegistrationProtocolUseCase } from 'src/application/use-cases/price-registration-protocol';
+import { PriceRegistrationProtocolItem } from 'src/domain/models/item/price-registration-protocol-item';
 import { PriceRegistrationProtocol } from 'src/domain/models/price-registration-protocol';
 import { AuthorizationGuard } from 'src/infra/http/auth/authorization.guard';
 import { PermissionsGuard } from 'src/infra/http/auth/permissions.guard';
@@ -18,25 +19,25 @@ export class PriceRegistrationProtocolResolver {
     private deletePriceRegistrationProtocolUseCase: DeletePriceRegistrationProtocolUseCase
   ) { }
 
-  @Mutation(() => PriceRegistrationProtocol)
-  // @UseGuards(AuthorizationGuard, PermissionsGuard)
-  // @SetMetadata('permissions', ['create:priceRegistrationProtocol'])
+  @Mutation(() => PriceRegistrationProtocolItem)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['create:priceRegistrationProtocolItem'])
   async createPriceRegistrationProtocol(
     @Args('data') data: CreatePriceRegistrationProtocolInput
   ) {
     return await this.createPriceRegistrationProtocolUseCase.handle(data);
   }
 
-  @Query(() => [PriceRegistrationProtocol], { name: 'priceRegistrationProtocol' })
-  // @UseGuards(AuthorizationGuard, PermissionsGuard)
-  // @SetMetadata('permissions', ['read:priceRegistrationProtocol'])
+  @Query(() => [PriceRegistrationProtocolItem], { name: 'priceRegistrationProtocolItem' })
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['read:priceRegistrationProtocolItem'])
   async listPriceRegistrationProtocols() {
     return await this.listPriceRegistrationProtocolUseCase.handle();
   }
 
-  @Mutation(() => PriceRegistrationProtocol)
-  // @UseGuards(AuthorizationGuard, PermissionsGuard)
-  // @SetMetadata('permissions', ['update:priceRegistrationProtocol'])
+  @Mutation(() => PriceRegistrationProtocolItem)
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['update:priceRegistrationProtocolItem'])
   async updatePriceRegistrationProtocol(
     @Args('data') data: UpdatePriceRegistrationProtocolInput,
   ) {
@@ -44,8 +45,8 @@ export class PriceRegistrationProtocolResolver {
   }
 
   @Mutation(() => String)
-  // @UseGuards(AuthorizationGuard, PermissionsGuard)
-  // @SetMetadata('permissions', ['delete:priceRegistrationProtocol'])
+  @UseGuards(AuthorizationGuard, PermissionsGuard)
+  @SetMetadata('permissions', ['delete:priceRegistrationProtocolItem'])
   async deletePriceRegistrationProtocol(
     @Args('id', { type: () => String }) id: string
   ) {

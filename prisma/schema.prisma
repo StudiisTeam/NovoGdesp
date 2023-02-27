@@ -116,12 +116,25 @@ model PriceRegistrationProtocol {
   updatedAt           DateTime                        @default(now()) @updatedAt
   deletedAt           DateTime?
 
-  biddingProcess        BiddingProcess       @relation(fields: [biddingProcessId], references: [id])
-  biddingProcessId      String
-  hiredPhyscalPerson    HiredPhysicalPerson? @relation(fields: [hiredPhysicalPersonId], references: [id])
-  hiredPhysicalPersonId String?
-  hiredLegalPerson      HiredLegalPerson?    @relation(fields: [hiredLegalPersonId], references: [id])
-  hiredLegalPersonId    String?
-  deparment             Department           @relation(fields: [departmentId], references: [id])
-  departmentId          String
+  biddingProcess                BiddingProcess                  @relation(fields: [biddingProcessId], references: [id])
+  biddingProcessId              String
+  hiredPhyscalPerson            HiredPhysicalPerson?            @relation(fields: [hiredPhysicalPersonId], references: [id])
+  hiredPhysicalPersonId         String?
+  hiredLegalPerson              HiredLegalPerson?               @relation(fields: [hiredLegalPersonId], references: [id])
+  hiredLegalPersonId            String?
+  deparment                     Department                      @relation(fields: [departmentId], references: [id])
+  departmentId                  String
+  PriceRegistrationProtocolItem PriceRegistrationProtocolItem[]
+}
+
+model PriceRegistrationProtocolItem {
+  id                          String                    @id @default(uuid())
+  specification               String
+  observation                 String
+  brand                       String
+  unity                       String
+  amount                      Int
+  value                       Float
+  priceRegistrationProtocol   PriceRegistrationProtocol @relation(fields: [priceRegistrationProtocolId], references: [id])
+  priceRegistrationProtocolId String
 }

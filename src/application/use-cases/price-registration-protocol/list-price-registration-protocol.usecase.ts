@@ -1,4 +1,4 @@
-import { PriceRegistrationProtocolRepositoryInterface } from "src/domain/interfaces/price-registration-protocol";
+import { PriceRegistrationProtocolRepositoryInterface } from "src/domain/interfaces/price-registration-protocol.interface";
 
 export class ListPriceRegistrationProtocolUsecase {
   constructor(

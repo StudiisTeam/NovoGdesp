@@ -1,8 +1,6 @@
 import { SetMetadata, UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { AuthorizationGuard } from '../../../infra/http/auth/authorization.guard';
-import { CreateDepartmentInput } from '../../../infra/http/graphql/inputs/deparment/create-department-input';
-import { UpdateDepartmentInput } from '../../../infra/http/graphql/inputs/deparment/update-department-input';
 import { Department } from '../../../domain/models/department';
 import { PermissionsGuard } from 'src/infra/http/auth/permissions.guard';
 import {
@@ -11,6 +9,8 @@ import {
   DeleteDepartmentUseCase,
   UpdateDepartmentUseCase
 } from 'src/application/use-cases/department/index';
+import { CreateDepartmentInput } from 'src/infra/http/graphql/inputs/deparment/create-department.input';
+import { UpdateDepartmentInput } from 'src/infra/http/graphql/inputs/deparment/update-department.input';
 
 @Resolver()
 export class DepartmentResolver {

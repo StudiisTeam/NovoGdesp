@@ -4,7 +4,7 @@ import {
   CreatePriceRegistrationProtocolProps,
   UpdatePriceRegistrationProtocolProps, 
   PriceRegistrationProtocolRepositoryInterface 
-} from 'src/domain/interfaces/price-registration-protocol';
+} from 'src/domain/interfaces/price-registration-protocol.interface';
 import { PrismaService } from 'src/infra/database/prisma/prisma.service';
 
 @Injectable()

@@ -3,6 +3,7 @@ import { BiddingProcessModule } from './bidding-process/bidding-process.module';
 import { DepartmentModule } from './department/department.module';
 import { HiredLegalPersonModule } from './hired/legal-person/hired-legal-person.module';
 import { HiredPhysicalPersonModule } from './hired/physical-person/hired-physical-person.module';
+import { PriceRegistrationProtocolItemModule } from './item/price-registration-protocol-item/price-registration-protocol-item.module';
 import { ModalityModule } from './modality/modality.module';
 import { PriceRegistrationProtocolModule } from './price-registration-protocol/price-registration-protocol.module';
 
@@ -13,7 +14,8 @@ import { PriceRegistrationProtocolModule } from './price-registration-protocol/p
     BiddingProcessModule,
     HiredLegalPersonModule,
     HiredPhysicalPersonModule,
-    PriceRegistrationProtocolModule
+    PriceRegistrationProtocolModule,
+    PriceRegistrationProtocolItemModule
   ],
 })
 
