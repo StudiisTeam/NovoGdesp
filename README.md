@@ -139,6 +139,4 @@ Para cada camada, definimos as interfaces em uma pasta de interfaces
 
 
 Para cada camada, definimos as interfaces em uma pasta de interfaces
-## License
 
-Nest is [MIT licensed](LICENSE).
