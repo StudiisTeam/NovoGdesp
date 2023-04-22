@@ -113,7 +113,6 @@ $ yarn run test:cov
 - [ADMIN] Exclusao de Operacoes
 - [MASTER] Listagem de Operacoes
 - [MASTER] Edicao de Operacoes
-#
 
 
 # Fluxo do projeto
