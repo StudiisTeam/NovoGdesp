@@ -45,19 +45,6 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
 # Descricoes de algumas partes do projeto
 ## 1 - Usuarios
 - Devera existir somente 3 tipos de perfis: **ADMIN, MASTER e USER**.
